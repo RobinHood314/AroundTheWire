@@ -1,0 +1,1120 @@
+#!/bin/bash
+user="whoami"
+function quit (){	
+	while true; do
+		echo "Are you sure you want to quit?"
+		shopt -s nocasematch
+		read -r quit
+		case "$quit" in
+			Yes)
+				echo "Thank you for playing!"
+				exit
+				;;
+			No)
+				break
+				;;
+			*)
+				echo "Please enter Yes or No"
+				;;
+		esac
+	done
+}
+function nextlevel (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function bandit (){
+echo "Welcome to Bandit! An OverTheWire Wargame!"
+echo "This wargame is geared for both beginners..."
+echo "And seasoned Linux CLI Veterans alike!"
+sleep 3
+echo "The password for Bandit0 is bandit0"
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 0!"
+nextlevel
+ssh bandit1@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 1!"
+nextlevel
+ssh bandit2@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 2!"
+nextlevel
+ssh bandit3@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 3!"
+nextlevel
+ssh bandit4@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 4!"
+nextlevel
+ssh bandit5@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 5!"
+nextlevel
+ssh bandit6@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 6!"
+nextlevel
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 7!"
+nextlevel
+ssh bandit8@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 8!"
+nextlevel
+ssh bandit9@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 9!"
+nextlevel
+ssh bandit10@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 10!"
+nextlevel
+ssh bandit11@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 11!"
+nextlevel
+ssh bandit12@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 12!"
+nextlevel
+ssh bandit13@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 13!"
+nextlevel
+ssh bandit14@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 14!"
+nextlevel
+ssh bandit15@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 15!"
+nextlevel
+ssh bandit16@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 16!"
+nextlevel
+ssh bandit17@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 17!"
+nextlevel
+ssh bandit18@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 18!"
+nextlevel
+ssh bandit19@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 19!"
+nextlevel
+ssh bandit20@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 20!"
+nextlevel
+ssh bandit21@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 21!"
+nextlevel
+ssh bandit22@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 22!"
+nextlevel
+ssh bandit23@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 23!"
+nextlevel
+ssh bandit24@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 24!"
+nextlevel
+ssh bandit25@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 25!"
+nextlevel
+ssh bandit26@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 26!"
+nextlevel
+ssh bandit27@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 27!"
+nextlevel
+ssh bandit28@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 28!"
+nextlevel
+ssh bandit29@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 29!"
+nextlevel
+ssh bandit30@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 30!"
+nextlevel
+ssh bandit31@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 31!"
+ssh bandit32@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 32!"
+nextlevel
+ssh bandit33@bandit.labs.overthewire.org -p 2220
+echo "Congratulations on beating Level 33!"
+}
+function krypton (){
+	echo "Welcome to Krypton! An OverTheWire wargame"
+	sleep 2
+	echo "Enter the password for Level 1..."
+	ssh krypton1@krypton.labs.overthewire.org -p 2231
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	ssh krypton2@krypton.labs.overthewire.org -p 2231
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	ssh krypton3@krypton.labs.overthewire.org -p 2231
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	ssh krypton4@krypton.labs.overthewire.org -p 2231
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	ssh krypton5@krypton.labs.overthewire.org -p 2231
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	ssh krypton6@krypton.labs.overthewire.org -p 2231
+	echo "Congratulations on beating Level 6!"
+}
+function leviathan (){
+	echo "Dare you face the lord of the oceans?"
+	sleep 3
+	echo "Welcome to Leviathan! An OverTheWire wargame"
+	sleep 1
+	echo "Enter the password for Level 1..."
+	ssh leviathan1@leviathan.labs.overthewire.org -p 2223
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh leviathan2@leviathan.labs.overthewire.org -p 2223
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh leviathan3@leviathan.labs.overthewire.org -p 2223
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh leviathan4@leviathan.labs.overthewire.org -p 2223
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh leviathan5@leviathan.labs.overthewire.org -p 2223
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh leviathan6@leviathan.labs.overthewire.org -p 2223
+	echo "Congratulations on beating Level 6!"
+}
+function narnia (){
+	echo "Welcome to Narnia! An OverTheWire wargame"
+	sleep 2
+	echo "Enter the password for Level 0..."
+	ssh narnia0@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 0!"
+	nextlevel
+	echo "Enter the password for Level 1..."
+	ssh narnia1@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh narnia3@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh narnia3@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh narnia4@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh narnia5@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh narnia6@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 6!"
+	nextlevel
+	echo "Enter the password for Level 7..."
+	ssh narnia7@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 7!"
+	nextlevel
+	echo "Enter the password for Level 8..."
+	ssh narnia8@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 8!"
+}
+function behemoth (){
+	echo "Welcome to Behemoth! An OverTheWire wargame"
+	sleep 2
+	echo "Don't let the Behemoth get the better of you..."
+	sleep 2
+	echo "Enter the password for Level 0..."
+	ssh behemoth0@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 0!"
+	nextlevel
+	echo "Enter the password for Level 1..."
+	ssh behemoth1@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh behemoth2@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh behemoth3@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh behemoth4@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh behemoth5@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh behemoth6@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 6!"
+	nextlevel
+	echo "Enter the password for Level 7..."
+	ssh behemoth7@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 7!"
+}
+function utumno (){
+	echo "Are you adaquate?"
+	sleep 3
+	echo "Welcome to Utumno! An OverTheWire wargame"
+	echo "Enter the password for Level 0..."
+	ssh utumno0@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 0!"
+	nextlevel
+	echo "Enter the password for Level 1..."
+	ssh utumno1@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh utumno2@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh utumno3@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh utumno4@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh utumno5@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh utumno6@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 6!"
+	nextlevel
+	echo "Enter the password for Level 7..."
+	ssh utumno7@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 7!"
+}
+function maze (){
+	echo "Can you find the way out?"
+	sleep 3
+	echo "Welcome to Maze! An OvertheWire wargame"
+	echo "Enter the password for Level 0..."
+	ssh maze0@maze.labs.overthewire.org -p 2225
+	echo "Congratulations on beating Level 0!"
+	nextlevel
+	echo "Enter the password for Level 1..."
+	ssh maze1@maze.labs.overthewire.org -p 2225
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh maze2@maze.labs.overthewire.org -p 2225
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh maze3@maze.labs.overthewire.org -p 2225
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh maze4@maze.labs.overthewire.org -p 2225
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh maze5@maze.labs.overthewire.org -p 2225
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh maze6@maze.labs.overthewire.org -p 2225
+	echo "Congratulations on beating Level 6!"
+	nextlevel
+	echo "Enter the password for Level 7..."
+	ssh maze7@maze.labs.overthewire.org -p 2225
+	echo "Congratulations on beating Level 7!"
+	nextlevel
+	echo "Enter the password for Level 8..."
+	ssh maze8@maze.labs.overthewire.org -p 2225
+	echo "Congratulations on beating Level 8!"
+}
+function vortex (){
+	echo "Welcome to Vortex! An OverTheWire wargame"
+	sleep 3
+	echo "Enter the password for Level 1..."
+	ssh vortex1@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh vortex2@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh vortex3@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh vortex4@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh vortex5@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh vortex6@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 6!"
+	nextlevel
+	echo "Enter the password for Level 7..."
+	ssh vortex7@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 7!"
+	nextlevel
+	echo "Enter the password for Level 8..."
+	ssh vortex8@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 8!"
+	nextlevel
+	echo "Enter the password for Level 9..."
+	ssh vortex9@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 9!"
+	nextlevel
+	echo "Enter the password for Level 10..."
+	ssh vortex10@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 10!"
+	nextlevel
+	echo "Enter the password for Level 11..."
+	ssh vortex11@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 11!"
+	nextlevel
+	echo "Enter the password for Level 12..."
+	ssh vortex12@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 12!"
+	nextlevel
+	echo "Enter the password for Level 13..."
+	ssh vortex13@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 13!"
+	nextlevel
+	echo "Enter the password for Level 14..."
+	ssh vortex14@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 14!"
+	nextlevel
+	echo "Enter the password for Level 15..."
+	ssh vortex15@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 15!"
+	nextlevel
+	echo "Enter the password for Level 16..."
+	ssh vortex16@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 16!"
+	nextlevel
+	echo "Enter the password for Level 17..."
+	ssh vortex17@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 17!"
+	nextlevel
+	echo "Enter the password for Level 18..."
+	ssh vortex18@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 18!"
+	nextlevel
+	echo "Enter the password for Level 19..."
+	ssh vortex19@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 19!"
+	nextlevel
+	echo "Enter the password for Level 20..."
+	ssh vortex20@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 20!"
+	nextlevel
+	echo "Enter the password for Level 21..."
+	ssh vortex21@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 21!"
+	nextlevel
+	echo "Enter the password for Level 22..."
+	ssh vortex22@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 22!"
+	nextlevel
+	echo "Enter the password for Level 23..."
+	ssh vortex23@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 23!"
+	nextlevel
+	echo "Enter the password for Level 24..."
+	ssh vortex24@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 24!"
+	nextlevel
+	echo "Enter the password for Level 25..."
+	ssh vortex25@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 25!"
+	nextlevel
+	echo "Enter the password for Level 26..."
+	ssh vortex26@vortex.labs.overthewire.org -p 2228
+	echo "Congratulations on beating Level 26!"
+}
+function manpage (){
+	echo "Can you RTFM?"
+	sleep 3
+	echo "Welcome to Manpage! An OvertheWire wargame"
+	sleep 1
+	echo "Enter the password for Level 0..."
+	ssh manpage0@manpage.labs.overthewire.org -p 2224
+	echo "Congratulations on beating Level 0!"
+	nextlevel
+	echo "Enter the password for Level 1..."
+	ssh manpage1@manpage.labs.overthewire.org -p 2224
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh manpage2@manpage.labs.overthewire.org -p 2224
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh manpage3@manpage.labs.overthewire.org -p 2224
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh manpage4@manpage.labs.overthewire.org -p 2224
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh manpage5@manpage.labs.overthewire.org -p 2224
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh manpage6@manpage.labs.overthewire.org -p 2224
+	echo "Congratulations on beating Level 6!"
+}
+function drifter (){
+	echo "Welcome to Drifter! An OvertheWire wargame"
+	sleep 1
+	echo "Enter the password for Level 0..."
+	ssh drifter0@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 0!"
+	nextlevel
+	echo "Enter the password for Level 1..."
+	ssh drifter1@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh drifter2@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh drifter3@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh drifter4@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh drifter5@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh drifter6@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 6!"
+	nextlevel
+	echo "Enter the password for Level 7..."
+	ssh drifter7@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 7!"
+	nextlevel
+	echo "Enter the password for Level 8..."
+	ssh drifter8@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 8!"
+	nextlevel
+	echo "Enter the password for Level 9..."
+	ssh drifter9@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 9!"
+	nextlevel
+	echo "Enter the password for Level 10..."
+	ssh drifter10@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 10!"
+	nextlevel
+	echo "Enter the password for Level 11..."
+	ssh drifter11@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 11!"
+	nextlevel
+	echo "Enter the password for Level 12..."
+	ssh drifter12@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 12!"
+	nextlevel
+	echo "Enter the password for Level 13..."
+	ssh drifter13@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 13!"
+	nextlevel
+	echo "Enter the password for Level 14..."
+	ssh drifter14@drifter.labs.overthewire.org -p 2230
+	echo "Congratulations on beating Level 14!"
+}
+function formulaone (){
+	echo "Welcome to FormulaOne! An OverTheWire wargame"
+	sleep 1
+	echo "Enter the password for Level 0..."
+	ssh formulaone0@formulaone.labs.overthewire.org -p 2232
+	echo "Congratulations on beating Level 0!"
+	nextlevel
+	echo "Enter the password for Level 1..."
+	ssh formulaone1@formulaone.labs.overthewire.org -p 2232
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh formulaone2@formulaone.labs.overthewire.org -p 2232
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh formulaone3@formulaone.labs.overthewire.org -p 2232
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh formulaone4@formulaone.labs.overthewire.org -p 2232
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh formulaone5@formulaone.labs.overthewire.org -p 2232
+	echo "Congratulations on beating Level 5!"
+}
+function OTW (){
+	echo "Welcome to OverTheWire Wargames!"
+	echo "DISCLAIMER!"
+	echo "I do not own OverTheWire or its wargames,"
+	echo "Nor do I have any affiliation with OverTheWire"
+	echo "(I think I'm legally required to put this)"
+	echo "Well, enough legalese!"
+	sleep 2
+	while true; do
+		echo "Choose a game:"
+		echo "1. Bandit"
+		echo "2. Krypton"
+		echo "3. Leviathan"
+		echo "4. Narnia"
+		echo "5. Behemoth"
+		echo "6. Utumno"
+		echo "7. Maze"
+		echo "8. Vortex"
+		echo "9. Manpage"
+		echo "10. Drifter"
+		echo "11. FormulaOne"
+		echo "Quit"
+		shopt -s nocasematch
+		read -r wargame
+		case "$wargame" in
+			Bandit)
+				bandit
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Bandit Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+
+			Krypton)
+				krypton
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Krypton Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Leviathan)
+				leviathan
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Leviathan Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Narnia)
+				narnia
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Narnia Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Behemoth)
+				behemoth
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Behemoth Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Utumno)
+				utumno
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Utumno Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Maze)
+				maze
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Maze Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Vortex)
+				vortex
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Vortex Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Manpage)
+				manpage
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Manpage Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Drifter)
+				drifter
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Drifter Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			FormulaOne)
+				formulaone
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the FormulaOne Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Quit)
+				quit
+				;;
+			*)
+				echo "Please enter a valid option"
+				;;
+		esac
+	done
+}
+function century (){
+	echo "Welcome to Century! An UnderTheWire wargame"
+	echo "Enter the password for Level 1..."
+	ssh century1@century.underthewire.tech
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh century2@century.underthewire.tech
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh century3@century.underthewire.tech
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh century4@century.underthewire.tech
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh century5@century.underthewire.tech
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh century6@century.underthewire.tech
+	echo "Congratulations on beating Level 6!"
+	nextlevel
+	echo "Enter the password for Level 7..."
+	ssh century7@century.underthewire.tech
+	echo "Congratulations on beating Level 7!"
+	nextlevel
+	echo "Enter the password for Level 8..."
+	ssh century8@century.underthewire.tech
+	echo "Congratulations on beating Level 8!"
+	nextlevel
+	echo "Enter the password for Level 9..."
+	ssh century9@century.underthewire.tech
+	echo "Congratulations on beating Level 9!"
+	nextlevel
+	echo "Enter the password for Level 10..."
+	ssh century10@century.underthewire.tech
+	echo "Congratulations on beating Level 10!"
+	nextlevel
+	echo "Enter the password for Level 11..."
+	ssh century11@century.underthewire.tech
+	echo "Congratulations on beating Level 11!"
+	nextlevel
+	echo "Enter the password for Level 12..."
+	ssh century12@century.underthewire.tech
+	echo "Congratulations on beating Level 12!"
+	nextlevel
+	echo "Enter the password for Level 13..."
+	ssh century13@century.underthewire.tech
+	echo "Congratulations on beating Level 13!"
+	nextlevel
+	echo "Enter the password for Level 14..."
+	ssh century14@century.underthewire.tech
+	echo "Congratulations on beating Level 14!"
+	nextlevel
+	echo "Enter the password for Level 15..."
+	ssh century15@century.underthewire.tech
+	echo "Congratulations on beating Level 15!"
+}
+function cyborg (){
+	echo "Welcome to Cyborg! An UnderTheWire wargame"
+	echo "Enter the password for Level 1..."
+	ssh cyborg1@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh cyborg2@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh cyborg3@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh cyborg4@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh cyborg5@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh cyborg6@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 6!"
+	nextlevel
+	echo "Enter the password for Level 7..."
+	ssh cyborg7@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 7!"
+	nextlevel
+	echo "Enter the password for Level 8..."
+	ssh cyborg8@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 8!"
+	nextlevel
+	echo "Enter the password for Level 9..."
+	ssh cyborg9@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 9!"
+	nextlevel
+	echo "Enter the password for Level 10..."
+	ssh cyborg10@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 10!"
+	nextlevel
+	echo "Enter the password for Level 11..."
+	ssh cyborg11@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 11!"
+	nextlevel
+	echo "Enter the password for Level 12..."
+	ssh cyborg12@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 12!"
+	nextlevel
+	echo "Enter the password for Level 13..."
+	ssh cyborg13@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 13!"
+	nextlevel
+	echo "Enter the password for Level 14..."
+	ssh cyborg14@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 14!"
+	nextlevel
+	echo "Enter the password for Level 15..."
+	ssh cyborg15@cyborg.underthewire.tech
+	echo "Congratulations on beating Level 15!"
+}
+function groot (){
+	echo "I am Groot"
+	ssh groot1@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot2@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot3@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot4@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot5@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot6@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot7@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot8@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot9@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot10@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot11@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot12@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot13@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot14@groot.underthewire.tech
+	echo "I am Groot"
+	nextlevel
+	echo "I am Groot"
+	ssh groot15@groot.underthewire.tech
+	echo "I am Groot"
+}
+function oracle (){
+	echo "Welcome to Oracle! An UnderTheWire wargame"
+	echo "Enter the password for Level 1..."
+	ssh oracle1@oracle.underthewire.tech
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh oracle2@oracle.underthewire.tech
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh oracle3@oracle.underthewire.tech
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh oracle4@oracle.underthewire.tech
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh oracle5@oracle.underthewire.tech
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh oracle6@oracle.underthewire.tech
+	echo "Congratulations on beating Level 6!"
+	nextlevel
+	echo "Enter the password for Level 7..."
+	ssh oracle7@oracle.underthewire.tech
+	echo "Congratulations on beating Level 7!"
+	nextlevel
+	echo "Enter the password for Level 8..."
+	ssh oracle8@oracle.underthewire.tech
+	echo "Congratulations on beating Level 8!"
+	nextlevel
+	echo "Enter the password for Level 9..."
+	ssh oracle9@oracle.underthewire.tech
+	echo "Congratulations on beating Level 9!"
+	nextlevel
+	echo "Enter the password for Level 10..."
+	ssh oracle10@oracle.underthewire.tech
+	echo "Congratulations on beating Level 10!"
+	nextlevel
+	echo "Enter the password for Level 11..."
+	ssh oracle11@oracle.underthewire.tech
+	echo "Congratulations on beating Level 11!"
+	nextlevel
+	echo "Enter the password for Level 12..."
+	ssh oracle12@oracle.underthewire.tech
+	echo "Congratulations on beating Level 12!"
+	nextlevel
+	echo "Enter the password for Level 13..."
+	ssh oracle13@oracle.underthewire.tech
+	echo "Congratulations on beating Level 13!"
+	nextlevel
+	echo "Enter the password for Level 14..."
+	ssh oracle14@oracle.underthewire.tech
+	echo "Congratulations on beating Level 14!"
+	nextlevel
+	echo "Enter the password for Level 15..."
+	ssh oracle15@oracle.underthewire.tech
+	echo "Congratulations on beating Level 15!"
+}	
+function trebek (){
+	echo "This UnderTheWire wargame that is last alphabetically"
+	echo "is also the name of a late famous game show host..."
+	sleep 3
+	echo "Answer: What is Trebek?"
+	echo "Enter the password for Level 1..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	echo "Enter the password for Level 2..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	echo "Enter the password for Level 3..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	echo "Enter the password for Level 4..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 4!"
+	nextlevel
+	echo "Enter the password for Level 5..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 5!"
+	nextlevel
+	echo "Enter the password for Level 6..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 6!"
+	nextlevel
+	echo "Enter the password for Level 7..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 7!"
+	nextlevel
+	echo "Enter the password for Level 8..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 8!"
+	nextlevel
+	echo "Enter the password for Level 9..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 9!"
+	nextlevel
+	echo "Enter the password for Level 10..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 10!"
+	nextlevel
+	echo "Enter the password for Level 11..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 11!"
+	nextlevel
+	echo "Enter the password for Level 12..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 12!"
+	nextlevel
+	echo "Enter the password for Level 13..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 13!"
+	nextlevel
+	echo "Enter the password for Level 14..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 14!"
+	nextlevel
+	echo "Enter the password for Level 15..."
+	ssh trebek1@trebek.underthewire.tech
+	echo "Congratulations on beating Level 15!"
+}
+function UTW (){
+	echo "Welcome to UnderTheWire:"
+	echo "Powershell training for the people"
+	sleep 1
+	echo "DISCLAIMER!"
+	echo "I do not own UnderTheWire nor its wargames"
+	echo "Nor do I have any affilication with UnderTheWire"
+	echo "(I'm probably legally required to put this)"
+	echo "Well, enough legalese! Enjoy!"
+	sleep 2
+	while true; do
+		echo "Choose a game:"
+		echo "1. Century"
+		echo "2. Cyborg"
+		echo "3. Groot"
+		echo "4. Oracle"
+		echo "5. Trebek"
+		echo "Quit"
+		shopt -s nocasematch
+		read -r wargame
+		case "$wargame" in
+			Century)
+				century
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Century Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Cyborg)
+				cyborg
+				echo "Congratulations..."
+				sleep 2
+				$"$user"
+				sleep 1
+				echo "You have beaten the Cyborg Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Groot)
+				groot
+				echo "I Am Groot"
+				;;
+			Oracle)
+				oracle
+				echo "Congratulations..."
+				$"$user"
+				sleep 1
+				echo "You have beaten the Oracle Wargame..."
+				echo "You can now choose another game or quit"
+				;;
+			Trebek)
+				trebeck
+				echo "Final Jeopardy: The name of the user"
+				echo "that just beat the Trebek Wargame..."
+				sleep 3
+				echo "What is $user?"
+				echo "Correct!"
+				echo "You can now play Double Jeopardy or quit"
+				;;
+			Quit)
+				quit
+				;;
+		esac
+	done
+}
+echo "Welcome to AroundTheWire!"
+echo "First time here?"
+sleep 1
+echo "This script is an interactive interface"
+echo "To play both OverTheWire and UnderTheWire wargames!"
+sleep 1
+echo "Please note the I have no affiliation with"
+echo "OverTheWire nor UnderTheWire, nor do I own them."
+sleep 1
+echo "Enough legalese, enjoy!"
+while true; do
+	echo "Choose OverTheWire (OTW)" 
+	echo "or UnderTheWire (UTW)"
+	shopt -s nocasematch
+	read -r wire
+	case "$wire" in
+		OTW|otw|OverTheWire|overthewire)
+		OTW
+		break
+		;;
+		UTW|utw|UnderTheWire|underthewire)
+		UTW
+		break
+		;;
+		*)
+		echo "Please choose a valid option"
+		;;
+	esac
+done
