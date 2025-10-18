@@ -1,4 +1,3 @@
-#AroundTheWire
 AroundTheWire is a script (soon to be scripts) that provides a user-friendly interactive interface
 to play the OverTheWire and UnderTheWire wargames...
 I'll give you the instructions first, and then bore you with the story of this script after
