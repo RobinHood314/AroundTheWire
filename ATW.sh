@@ -306,34 +306,73 @@ function krypton (){
 	ssh krypton6@krypton.labs.overthewire.org -p 2231
 	echo "Congratulations on beating Level 6!"
 }
-function leviathan (){
-	echo "Dare you face the lord of the oceans?"
-	sleep 3
-	echo "Welcome to Leviathan! An OverTheWire wargame"
-	sleep 1
+function leviathan1 (){
+	echo "Behold, the hope of him is in vain:"
+	echo "shall not one be cast down even at the sight of him?"
+	echo "None is so fierce that dare stir him up..."
 	echo "Enter the password for Level 1..."
 	ssh leviathan1@leviathan.labs.overthewire.org -p 2223
 	echo "Congratulations on beating Level 1!"
 	nextlevel
+}
+function leviathan2 (){
+	echo "Out of his mouth go burning lamps,"
+	echo "and sparks of fire leap out."
+	echo "Out of his nostrils goeth smoke,"
+	echo "as out of a seething pot or caldron..."
 	echo "Enter the password for Level 2..."
 	ssh leviathan2@leviathan.labs.overthewire.org -p 2223
 	echo "Congratulations on beating Level 2!"
 	nextlevel
+}
+function leviathan3 (){
+	echo "His heart is as firm as a stone; yea,"
+	echo "as hard as a piece of the nether millstone"
+	echo "When he raiseth up himself, the mighty are afraid"
 	echo "Enter the password for Level 3..."
 	ssh leviathan3@leviathan.labs.overthewire.org -p 2223
 	echo "Congratulations on beating Level 3!"
 	nextlevel
+}
+function leviathan4 (){
+	echo "The sword of him that layeth at him cannot hold:"
+	echo "the spear, the dart, nor the habergeon"
+	echo "He esteemeth iron as straw, and brass as rotten wood"
 	echo "Enter the password for Level 4..."
 	ssh leviathan4@leviathan.labs.overthewire.org -p 2223
 	echo "Congratulations on beating Level 4!"
 	nextlevel
+}
+function leviathan5 (){
+	echo "The arrow cannot make him flee: slingstones are turned"
+	echo "with him into stubble. Darts are counted as stubble:"
+	echo "he laugheth at the shaking of the spear."
 	echo "Enter the password for Level 5..."
 	ssh leviathan5@leviathan.labs.overthewire.org -p 2223
 	echo "Congratulations on beating Level 5!"
 	nextlevel
+}
+function leviathan6 (){
+	echo "Darts are counted as stubble: he laugheth at"
+	echo "Sharp stones are under him: he spreadeth" 
+	echo "sharp pointed things upon the mire..."
+	echo "He maketh the deep to boil like a pot"
 	echo "Enter the password for Level 6..."
 	ssh leviathan6@leviathan.labs.overthewire.org -p 2223
 	echo "Congratulations on beating Level 6!"
+}
+function leviathan (){
+	echo "Canst thou draw out the Leviathan with a hook?"
+	echo "Or his tongue with a cord which thou lettest down?"
+	sleep 3
+	echo "Welcome to Leviathan! An OverTheWire wargame"
+	sleep 1
+	leviathan1
+	leviathan2
+	leviathan3
+	leviathan4
+	leviathan5
+	leviathan6
 }
 function narnia (){
 	echo "Welcome to Narnia! An OverTheWire wargame"
@@ -374,42 +413,83 @@ function narnia (){
 	ssh narnia8@narnia.labs.overthewire.org -p 2226
 	echo "Congratulations on beating Level 8!"
 }
-function behemoth (){
-	echo "Welcome to Behemoth! An OverTheWire wargame"
-	sleep 2
-	echo "Don't let the Behemoth get the better of you..."
-	sleep 2
+function behemoth0 (){
+	echo "Lo now, his strength is in his lions,"
+	echo "and the force is in the navel of his belly."
 	echo "Enter the password for Level 0..."
 	ssh behemoth0@narnia.labs.overthewire.org -p 2221
 	echo "Congratulations on beating Level 0!"
 	nextlevel
+}
+function behemoth1 (){
+	echo "He moveth his tail like a cedar: the"
+	echo "sinews of his stones are wrapped together"
 	echo "Enter the password for Level 1..."
 	ssh behemoth1@narnia.labs.overthewire.org -p 2221
 	echo "Congratulations on beating Level 1!"
-	nextlevel
+	nextlevel	
+}
+function behemoth2 (){
+	echo "His bones are as strong pieces of brass;"
+	echo "his bones are like bars of iron."
 	echo "Enter the password for Level 2..."
 	ssh behemoth2@narnia.labs.overthewire.org -p 2221
 	echo "Congratulations on beating Level 2!"
-	nextlevel
+	nextlevel	
+}
+function behemoth3 (){
+	echo "He is the chief of the ways of God: he that"
+	echo "made him can make his sword to approach unto him"
 	echo "Enter the password for Level 3..."
 	ssh behemoth3@narnia.labs.overthewire.org -p 2221
 	echo "Congratulations on beating Level 3!"
-	nextlevel
+	nextlevel	
+}
+function behemoth4 (){
+	echo "Surely the mountains bring him forth food,"
+	echo "where all the beasts of the field play."
 	echo "Enter the password for Level 4..."
 	ssh behemoth4@narnia.labs.overthewire.org -p 2221
 	echo "Congratulations on beating Level 4!"
-	nextlevel
+	nextlevel	
+}
+function behemoth5 (){
+	echo "He lieth under the shady trees," 
+	echo "in the covert of the reed, and fens."
 	echo "Enter the password for Level 5..."
 	ssh behemoth5@narnia.labs.overthewire.org -p 2221
 	echo "Congratulations on beating Level 5!"
 	nextlevel
+}
+function behemoth6 (){
+	echo "The shady trees cover him with their shadow;"
+	echo "the willows of the brook compass him about."
 	echo "Enter the password for Level 6..."
 	ssh behemoth6@narnia.labs.overthewire.org -p 2221
 	echo "Congratulations on beating Level 6!"
-	nextlevel
+	nextlevel	
+}
+function behemoth7 (){
+	echo "Behold, he drinketh up a river, and hasteth not:"
+	echo "he trusteth that he can draw up Jordan into his mouth."
 	echo "Enter the password for Level 7..."
 	ssh behemoth7@narnia.labs.overthewire.org -p 2221
 	echo "Congratulations on beating Level 7!"
+}
+function behemoth (){
+	echo "Welcome to Behemoth! An OverTheWire wargame"
+	sleep 2
+	echo "Behold now Behemoth, which I made with thee;"
+	echo "he eateth grass as an ox."
+	sleep 2
+	behemoth0
+	behemoth1
+	behemoth2
+	behemoth3
+	behemoth4
+	behemoth5
+	behemoth6
+	behemoth7
 }
 function utumno (){
 	echo "Are you adaquate?"
@@ -769,6 +849,7 @@ function OTW (){
 				sleep 1
 				echo "You have beaten the Leviathan Wargame..."
 				echo "You can now choose another game or quit"
+				echo "Job 41"
 				;;
 			Narnia)
 				narnia
@@ -787,6 +868,7 @@ function OTW (){
 				sleep 1
 				echo "You have beaten the Behemoth Wargame..."
 				echo "You can now choose another game or quit"
+				echo "Job 40:15-24"
 				;;
 			Utumno)
 				utumno
