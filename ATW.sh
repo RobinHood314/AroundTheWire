@@ -192,15 +192,13 @@ function bandit18 (){
 	while true; do
 		read -r sshcommand
 		case "$sshcommand" in
-			ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme)
-			ssh bandit18@bandit.labs.overthewire.org -p 2220 cat rea
-dme
-;;
-*)
-	echo "That's not the right command, try again!"
-	;;
-	nextlevel
-esac
+			"ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme")
+			ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
+			;;
+		*)
+			echo "That's not the right command, try again!"
+			;;
+	esac
 done
 echo "Congratulations on beating Level 18!"
 nextlevel
@@ -620,45 +618,76 @@ function utumno (){
 	ssh utumno7@narnia.labs.overthewire.org -p 2227
 	echo "Congratulations on beating Level 7!"
 }
-function maze (){
-	echo "Can you find the way out?"
-	sleep 3
-	echo "Welcome to Maze! An OvertheWire wargame"
+function maze0 (){
 	echo "Enter the password for Level 0..."
 	ssh maze0@maze.labs.overthewire.org -p 2225
 	echo "Congratulations on beating Level 0!"
 	nextlevel
+}
+function maze1 (){
 	echo "Enter the password for Level 1..."
 	ssh maze1@maze.labs.overthewire.org -p 2225
 	echo "Congratulations on beating Level 1!"
 	nextlevel
+}
+function maze2 (){
 	echo "Enter the password for Level 2..."
 	ssh maze2@maze.labs.overthewire.org -p 2225
 	echo "Congratulations on beating Level 2!"
 	nextlevel
+}
+function maze3 (){
 	echo "Enter the password for Level 3..."
 	ssh maze3@maze.labs.overthewire.org -p 2225
 	echo "Congratulations on beating Level 3!"
 	nextlevel
+}
+function maze4 (){
 	echo "Enter the password for Level 4..."
 	ssh maze4@maze.labs.overthewire.org -p 2225
 	echo "Congratulations on beating Level 4!"
 	nextlevel
+}
+function maze5 (){
 	echo "Enter the password for Level 5..."
 	ssh maze5@maze.labs.overthewire.org -p 2225
 	echo "Congratulations on beating Level 5!"
 	nextlevel
+}
+function maze6 (){
 	echo "Enter the password for Level 6..."
 	ssh maze6@maze.labs.overthewire.org -p 2225
 	echo "Congratulations on beating Level 6!"
 	nextlevel
+}
+function maze7 (){
 	echo "Enter the password for Level 7..."
 	ssh maze7@maze.labs.overthewire.org -p 2225
 	echo "Congratulations on beating Level 7!"
 	nextlevel
+}
+function maze8 (){
+	echo "One more... final analysis."
+	echo "Now it's time for the last test."
+	echo "To escape..."
 	echo "Enter the password for Level 8..."
 	ssh maze8@maze.labs.overthewire.org -p 2225
 	echo "Congratulations on beating Level 8!"
+}
+function maze (){
+	echo "Out there's the Maze. Everything we do-"
+	echo "our whole life, Greenie- revolves around the Maze."
+	sleep 3
+	echo "Welcome to Maze! An OvertheWire wargame"
+	maze0
+	maze1
+	maze2
+	maze3
+	maze4
+	maze5
+	maze6
+	maze7
+	maze8
 }
 function vortex (){
 	echo "Welcome to Vortex! An OverTheWire wargame"
@@ -915,7 +944,7 @@ function OTW (){
 		shopt -s nocasematch
 		read -r wargame
 		case "$wargame" in
-			Bandit)
+			1|Bandit)
 				bandit
 				echo "Congratulations..."
 				sleep 2
@@ -925,7 +954,7 @@ function OTW (){
 				echo "You can now choose another game or quit"
 				;;
 
-			Krypton)
+			2|Krypton)
 				krypton
 				echo "Congratulations..."
 				sleep 2
@@ -934,7 +963,7 @@ function OTW (){
 				echo "You have beaten the Krypton Wargame..."
 				echo "You can now choose another game or quit"
 				;;
-			Leviathan)
+			3|Leviathan)
 				leviathan
 				echo "Congratulations..."
 				sleep 2
@@ -944,7 +973,7 @@ function OTW (){
 				echo "You can now choose another game or quit"
 				echo "Job 41"
 				;;
-			Narnia)
+			4|Narnia)
 				narnia
 				echo "Congratulations..."
 				sleep 2
@@ -953,7 +982,7 @@ function OTW (){
 				echo "You have beaten the Narnia Wargame..."
 				echo "You can now choose another game or quit"
 				;;
-			Behemoth)
+			5|Behemoth)
 				behemoth
 				echo "Congratulations..."
 				sleep 2
@@ -963,7 +992,7 @@ function OTW (){
 				echo "You can now choose another game or quit"
 				echo "Job 40:15-24"
 				;;
-			Utumno)
+			6|Utumno)
 				utumno
 				echo "Congratulations..."
 				sleep 2
@@ -972,7 +1001,7 @@ function OTW (){
 				echo "You have beaten the Utumno Wargame..."
 				echo "You can now choose another game or quit"
 				;;
-			Maze)
+			7|Maze)
 				maze
 				echo "Congratulations..."
 				sleep 2
@@ -981,7 +1010,7 @@ function OTW (){
 				echo "You have beaten the Maze Wargame..."
 				echo "You can now choose another game or quit"
 				;;
-			Vortex)
+			8|Vortex)
 				vortex
 				echo "Congratulations..."
 				sleep 2
@@ -990,7 +1019,7 @@ function OTW (){
 				echo "You have beaten the Vortex Wargame..."
 				echo "You can now choose another game or quit"
 				;;
-			Manpage)
+			9|Manpage)
 				manpage
 				echo "Congratulations..."
 				sleep 2
@@ -999,7 +1028,7 @@ function OTW (){
 				echo "You have beaten the Manpage Wargame..."
 				echo "You can now choose another game or quit"
 				;;
-			Drifter)
+			10|Drifter)
 				drifter
 				echo "Congratulations..."
 				sleep 2
@@ -1008,7 +1037,7 @@ function OTW (){
 				echo "You have beaten the Drifter Wargame..."
 				echo "You can now choose another game or quit"
 				;;
-			FormulaOne)
+			11|FormulaOne)
 				formulaone
 				echo "Congratulations..."
 				sleep 2
@@ -1359,7 +1388,7 @@ function UTW (){
 		shopt -s nocasematch
 		read -r wargame
 		case "$wargame" in
-			Century)
+			1|Century)
 				century
 				echo "Congratulations..."
 				sleep 2
@@ -1368,7 +1397,7 @@ function UTW (){
 				echo "You have beaten the Century Wargame..."
 				echo "You can now choose another game or quit"
 				;;
-			Cyborg)
+			2|Cyborg)
 				cyborg
 				echo "Congratulations..."
 				sleep 2
@@ -1377,11 +1406,11 @@ function UTW (){
 				echo "You have beaten the Cyborg Wargame..."
 				echo "You can now choose another game or quit"
 				;;
-			Groot)
+			3|Groot)
 				groot
 				echo "I Am Groot"
 				;;
-			Oracle)
+			4|Oracle)
 				oracle
 				echo "Congratulations..."
 				$"$user"
@@ -1389,7 +1418,7 @@ function UTW (){
 				echo "You have beaten the Oracle Wargame..."
 				echo "You can now choose another game or quit"
 				;;
-			Trebek)
+			5|Trebek)
 				trebek
 				echo "Final Jeopardy: The name of the user"
 				echo "that just beat the Trebek Wargame..."
@@ -1415,8 +1444,10 @@ echo "OverTheWire nor UnderTheWire, nor do I own them."
 sleep 1
 echo "Enough legalese, enjoy!"
 while true; do
-	echo "Choose OverTheWire (OTW)" 
-	echo "or UnderTheWire (UTW)"
+	echo "Choose a wargame:" 
+	echo "OverTheWire (OTW)" 
+	echo "UnderTheWire (UTW)"
+	echo "--Cancel--"
 	shopt -s nocasematch
 	read -r wire
 	case "$wire" in
