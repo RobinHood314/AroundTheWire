@@ -151,98 +151,192 @@ function bandit14 (){
 	nextlevel
 }
 function bandit15 (){
+	echo "The password for the next level can be retrieved by"
+	echo "submitting the password of the current level to port 30001"
+	echo "on localhost using SSL/TLS encryption."
 	ssh bandit15@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 15!"
 	nextlevel
 }
 function bandit16 (){
+	echo "The password for the next level can be retrieved" 
+	echo "by submitting the password of the current level"
+	echo "to a port on localhost in the range of 31000 to 32000"
+	echo "First find out which of these ports have a server" 
+	echo "listening on them. Then find out which of those" 
+	echo "speak SSL/TLS and which don’t. There is only 1 server" 
+	echo "that will give the next credentials, the others will" 
+	echo "simply send back to you whatever you send to it."
 	ssh bandit16@bandit.labs.overthewire.org
 	echo "Congratulations on beating Level 16!"
 	nextlevel
 }
 function bandit17 (){
+	echo "The password for the next level is in passwords.new"
+       	echo "and is the only line that has been changed between" 
+	echo "passwords.old and passwords.new"
 	ssh bandit17@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 17!"
 	nextlevel
 }
 function bandit18 (){
+	echo "The password for the next level is in"
+	echo "a file called readme in the home directory"
 	ssh bandit18@bandit.labs.overthewire.org
-	echo "Congratulations on beating Level 18!"
+	echo "Congratulations on beating- Wait a minute..."
+	sleep 2
+	echo "You got kicked out? Oh- I see..."
+	sleep 2
+	echo "Someone must have modified .bashrc..."
+	echo "You'll have to enter a certain SSH command-"
+	while true; do
+		read -r sshcommand
+		case "$sshcommand" in
+			ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme)
+			ssh bandit18@bandit.labs.overthewire.org -p 2220 cat rea
+dme
+;;
+*)
+	echo "That's not the right command, try again!"
+	;;
 	nextlevel
+esac
+done
+echo "Congratulations on beating Level 18!"
+nextlevel
 }
 function bandit19 (){
+	echo "The password for this level can be found"
+        echo "in the usual place /etc/bandit_pass, after"
+	echo "you have set the setuid binary"
 	ssh bandit19@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 19!"
 	nextlevel
 }
 function bandit20 (){
+	echo "There is a setuid binary in the homedirectory" 
+	echo "that does the following: it makes a connection" 
+	echo "to localhost on the port you specify as a" 
+	echo "commandline argument. It then reads a line of" 
+	echo "text from the connection and compares it to the" 
+	echo "password in the previous level. If the password" 
+	echo "is correct, it will transmit the password" 
+	echo "for the next level."
 	ssh bandit20@bandit.labs.overthewire.org
 	echo "Congratulations on beating Level 20!"
 	nextlevel
 }
 function bandit21 (){
+	echo "A program is running automatically at regular" 
+	echo "intervals from cron, the time-based job scheduler." 
+	echo "Look in /etc/cron.d/ for the configuration" 
+	echo "and see what command is being executed."
 	ssh bandit21@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 21!"
 	nextlevel
 }
 function bandit22 (){
+	echo "Look in /etc/cron.d/ for the configuration" 
+	echo "and see what command is being executed."
+	echo "Note: Looking at the shell script might help"
 	ssh bandit22@bandit.labs.overthewire.org
 	echo "Congratulations on beating Level 22!"
 	nextlevel
 }
 function bandit23 (){
+	echo "Look in /etc/cron.d/ for the configuration" 
+	echo "and see what command is being executed."
+	echo "This level requires you to create a shell script!"
+	echo "You might want to keep a copy of that script around-"
 	ssh bandit23@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 23!"
 	nextlevel
 }
 function bandit24 (){
+	echo "A daemon is listening on port 30002" 
+	echo "and will give you the password for bandit25" 
+	echo "if given the password for bandit24 and a" 
+	echo "secret numeric 4-digit pincode. There is no way" 
+	echo "to retrieve the pincode except by going through" 
+	echo "all of the 10000 combinations, called brute-forcing."
 	ssh bandit24@bandit.labs.overthewire.org
 	echo "Congratulations on beating Level 24!"
 	nextlevel
 }
 function bandit25 (){
+	echo "Logging in to bandit26 from bandit25" 
+	echo "should be fairly easy… The shell for user" 
+	echo "bandit26 is not /bin/bash, but something else."
+	echo "Find out what it is, how it works," 
+	echo "and how to break out of it."
+	echo "If you're on Windows, use Command Prompt,"
+	echo "as Powershell has been known to cause issues"
 	ssh bandit25@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 25!"
 	nextlevel
 }
 function bandit26 (){
+	echo "Hurry! Grab the password for bandit27!"
 	ssh bandit26@bandit.labs.overthewire.org
 	echo "Congratulations on beating Level 26!"
 	nextlevel
 }
 function bandit27 (){
+	echo "There is a git repository at"
+	echo "ssh://bandit27-git@bandit.labs.overthewire.org/home/bandit27-git/repo"
+	echo "via port 2220, The password  for the user"
+	echo "bandit27-git is the same as for the user bandit27"
+	echo "Clone the repository and find the password!"
 	ssh bandit27@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 27!"
 	nextlevel
 }
 function bandit28 (){
+	echo "There is a git repository at"
+	echo "ssh://bandit28-git@bandit.labs.overthewire.org/home/bandit28-git/repo"
+	echo "via port 2220, The password  for the user"
+	echo "bandit28-git is the same as for the user bandit28"
+	echo "Clone the repository and find the password!"
 	ssh bandit28@bandit.labs.overthewire.org
 	echo "Congratulations on beating Level 28!"
 	nextlevel
 }
 function bandit29 (){
+	echo "There is a git repository at"
+	echo "ssh://bandit29-git@bandit.labs.overthewire.org/home/bandit29-git/repo"
+	echo "via port 2220, The password  for the user"
+	echo "bandit29-git is the same as for the user bandit29"
+	echo "Clone the repository and find the password!"
 	ssh bandit29@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 29!"
 	nextlevel
 }
 function bandit30 (){
+	echo "There is a git repository at"
+	echo "ssh://bandit30-git@bandit.labs.overthewire.org/home/bandit30-git/repo"
+	echo "via port 2220, The password  for the user"
+	echo "bandit30-git is the same as for the user bandit30"
+	echo "Clone the repository and find the password!"
 	ssh bandit30@bandit.labs.overthewire.org
 	echo "Congratulations on beating Level 30!"
 	nextlevel
 }
 function bandit31 (){
+	echo "There is a git repository at"
+	echo "ssh://bandit31-git@bandit.labs.overthewire.org/home/bandit31-git/repo"
+	echo "via port 2220, The password  for the user"
+	echo "bandit31-git is the same as for the user bandit31"
+	echo "Clone the repository and find the password!"
 	ssh bandit31@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 31!"
 	nextlevel
 }
 function bandit32 (){
+	echo "Enough git stuff, you earned a break!"
+	echo "Good luck!"
 	ssh bandit32@bandit.labs.overthewire.org
 	echo "Congratulations on beating Level 32!"
 	nextlevel
-}
-function bandit33 (){
-	ssh bandit33@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 33!"
 }
 function bandit (){
 echo "Welcome to Bandit! An OverTheWire Wargame!"
@@ -282,7 +376,6 @@ bandit29
 bandit30
 bandit31
 bandit32
-bandit33
 }
 function krypton (){
 	echo "Welcome to Krypton! An OverTheWire wargame"
