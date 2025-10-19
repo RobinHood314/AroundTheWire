@@ -375,27 +375,87 @@ bandit30
 bandit31
 bandit32
 }
-function krypton (){
-	echo "Welcome to Krypton! An OverTheWire wargame"
+function krypton1(){
+	echo "Getting into the first level is easy..."
+	echo "The following password is encoded in Base64:"
+	echo "S1JZUFRPTklTR1JFQVQ="
+	echo "The password for the next level is in"
+	echo "the file krypton2, encrypted with a simple"
+	echo "rotation cypher, it is also in non-standard"
+	echo "ciphertext format..."
 	sleep 2
 	echo "Enter the password for Level 1..."
 	ssh krypton1@krypton.labs.overthewire.org -p 2231
 	echo "Congratulations on beating Level 1!"
 	nextlevel
+}
+function krypton2 (){
+	echo "The password for the next level is in"
+	echo "the file krypton3, which is encrypted with"
+	echo "a Caesar Cipher, which shifts the alphabet by"
+	echo "a set number... Think logically, and it will be easy"	
+	sleep 2
+	echo "Enter the password for Level 2..."
 	ssh krypton2@krypton.labs.overthewire.org -p 2231
 	echo "Congratulations on beating Level 2!"
 	nextlevel
+}
+function krypton3 (){
+	echo "The password for the next level is in"
+	echo "the file krypton4, you got lucky and you"
+	echo "also have 3 other files, found1, found2,"
+	echo "and found3... The message plaintexts are in"
+	echo "American English, all produced from the same key"
+	sleep 2
+	echo "Enter the password for Level 3..."
 	ssh krypton3@krypton.labs.overthewire.org -p 2231
 	echo "Congratulations on beating Level 3!"
 	nextlevel
+}
+function krypton4 (){
+	echo "The password for the next level is in"
+	echo "its usual place, encrypted with a 6 letter key"
+	echo "This level uses a Vigenere Cipher, which is"
+	echo "a type of polyalphabetic substitution cypher"
+	echo "It works like this, If we use the key(K) 'GOLD'," 
+	echo "and P = PROCEED MEETING AS AGREED, then add" 
+	echo "P to K, we get C. When adding, if we exceed 25," 
+	echo "then we roll to 0 (modulo 26)."
+	sleep 2
+	echo "Enter the password for Level 4..."
 	ssh krypton4@krypton.labs.overthewire.org -p 2231
 	echo "Congratulations on beating Level 4!"
 	nextlevel
+}
+function krypton5 (){
+	echo "This level is like the last, the only"
+	echo "difference is that the key length is unknown"
+	echo "The text is in American English"
+	sleep 2
+	echo "Enter the password for Level 5..."
 	ssh krypton5@krypton.labs.overthewire.org -p 2231
 	echo "Congratulations on beating Level 5!"
 	nextlevel
+}
+function krypton6 (){
+	echo "The password for Level 7 is encrypted with"
+	echo "the file encrypt6, there are 2 hint files, in case"
+	echo "you get stuck, HINT1 and HINT2..."
+	sleep 2
+	echo "Enter the password for Level 6..."
 	ssh krypton6@krypton.labs.overthewire.org -p 2231
 	echo "Congratulations on beating Level 6!"
+}
+function krypton (){
+	echo "Welcome to Krypton! An OverTheWire wargame"
+	sleep 2
+	krypton0
+	krypton1
+	krypton2
+	krypton3
+	krypton4
+	krypton5
+	krypton6
 }
 function leviathan1 (){
 	echo "Behold, the hope of him is in vain:"
@@ -1433,6 +1493,7 @@ function UTW (){
 		esac
 	done
 }
+function AroundTheWire (){
 echo "Welcome to AroundTheWire!"
 echo "First time here?"
 sleep 1
@@ -1467,3 +1528,41 @@ while true; do
 		;;
 	esac
 done
+}
+AroundTheWire
+function titlescreen (){
+	while true; do
+		echo "Return to the Title Screen?"
+		shopt -s nocasematch
+		read -r title
+		case "$title" in
+			Yes)
+				while true; do
+				echo "Are you sure you want to"
+				echo "go to the Title Screen?"
+				echo "Unsaved progress will be lost."
+				shopt -s nocasematch
+				read -r confirmtitle
+				case "$confirmtitle" in
+					Yes)
+						AroundTheWire
+						break
+						;;
+					No)
+						break
+						;;
+					*)
+						echo "Please enter Yes or No"
+						;;
+				esac
+			done
+			;;
+			No)
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
