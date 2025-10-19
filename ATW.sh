@@ -55,7 +55,7 @@ function bandit1 (){
 function bandit2 (){
 	echo "The password for the next level is in a file"
 	echo "called --spaces in this filename-- in the home directory"
-	ssh bandit2@bandit.labs.overthewire.org
+	ssh bandit2@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 2!"
 	nextlevel
 }
@@ -69,7 +69,7 @@ function bandit3 (){
 function bandit4 (){
 	echo "The password for the next level is in the only"
 	echo "human-readable file in the inhere directory"
-	ssh bandit4@bandit.labs.overthewire.org
+	ssh bandit4@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 4!"
 	nextlevel
 }
@@ -85,7 +85,7 @@ function bandit6 (){
 	echo "The password for the next level is on the server"
 	echo "and is owned by the user bandit7, the group bandit6,"
 	echo "and is 33 bytes in size"
-	ssh bandit6@bandit.labs.overthewire.org
+	ssh bandit6@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 6!"
 	nextlevel
 }
@@ -99,7 +99,7 @@ function bandit7 (){
 function bandit8 (){
 	echo "The password for the next level is in the file data.txt"
 	echo "and is the only line of text that only occurs once"
-	ssh bandit8@bandit.labs.overthewire.org
+	ssh bandit8@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 8!"
 	nextlevel
 }
@@ -114,7 +114,7 @@ function bandit9 (){
 function bandit10 (){
 	echo "The password for the next level is in the file data.txt"
 	echo "which contains base64 encoded data"
-	ssh bandit10@bandit.labs.overthewire.org
+	ssh bandit10@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 10!"
 	nextlevel
 }
@@ -129,7 +129,7 @@ function bandit11 (){
 function bandit12 (){
 	echo "The password for the next level is in the file data.txt,"
 	echo "which is a hexdump that has been repeatedly compressed"
-	ssh bandit12@bandit.labs.overthewire.org
+	ssh bandit12@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 12!"
 	nextlevel
 }
@@ -146,7 +146,7 @@ function bandit14 (){
 	echo "The password for the next level can be retrieved"
 	echo "by submitting the password of the current leve to"
 	echo "port 30000 on localhost"
-	ssh bandit14@bandit.labs.overthewire.org
+	ssh bandit14@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 14!"
 	nextlevel
 }
@@ -167,7 +167,7 @@ function bandit16 (){
 	echo "speak SSL/TLS and which don’t. There is only 1 server" 
 	echo "that will give the next credentials, the others will" 
 	echo "simply send back to you whatever you send to it."
-	ssh bandit16@bandit.labs.overthewire.org
+	ssh bandit16@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 16!"
 	nextlevel
 }
@@ -182,7 +182,7 @@ function bandit17 (){
 function bandit18 (){
 	echo "The password for the next level is in"
 	echo "a file called readme in the home directory"
-	ssh bandit18@bandit.labs.overthewire.org
+	ssh bandit18@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating- Wait a minute..."
 	sleep 2
 	echo "You got kicked out? Oh- I see..."
@@ -220,7 +220,7 @@ function bandit20 (){
 	echo "password in the previous level. If the password" 
 	echo "is correct, it will transmit the password" 
 	echo "for the next level."
-	ssh bandit20@bandit.labs.overthewire.org
+	ssh bandit20@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 20!"
 	nextlevel
 }
@@ -237,7 +237,7 @@ function bandit22 (){
 	echo "Look in /etc/cron.d/ for the configuration" 
 	echo "and see what command is being executed."
 	echo "Note: Looking at the shell script might help"
-	ssh bandit22@bandit.labs.overthewire.org
+	ssh bandit22@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 22!"
 	nextlevel
 }
@@ -257,7 +257,7 @@ function bandit24 (){
 	echo "secret numeric 4-digit pincode. There is no way" 
 	echo "to retrieve the pincode except by going through" 
 	echo "all of the 10000 combinations, called brute-forcing."
-	ssh bandit24@bandit.labs.overthewire.org
+	ssh bandit24@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 24!"
 	nextlevel
 }
@@ -275,7 +275,7 @@ function bandit25 (){
 }
 function bandit26 (){
 	echo "Hurry! Grab the password for bandit27!"
-	ssh bandit26@bandit.labs.overthewire.org
+	ssh bandit26@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 26!"
 	nextlevel
 }
@@ -295,7 +295,7 @@ function bandit28 (){
 	echo "via port 2220, The password  for the user"
 	echo "bandit28-git is the same as for the user bandit28"
 	echo "Clone the repository and find the password!"
-	ssh bandit28@bandit.labs.overthewire.org
+	ssh bandit28@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 28!"
 	nextlevel
 }
@@ -315,7 +315,7 @@ function bandit30 (){
 	echo "via port 2220, The password  for the user"
 	echo "bandit30-git is the same as for the user bandit30"
 	echo "Clone the repository and find the password!"
-	ssh bandit30@bandit.labs.overthewire.org
+	ssh bandit30@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 30!"
 	nextlevel
 }
@@ -332,7 +332,7 @@ function bandit31 (){
 function bandit32 (){
 	echo "Enough git stuff, you earned a break!"
 	echo "Good luck!"
-	ssh bandit32@bandit.labs.overthewire.org
+	ssh bandit32@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 32!"
 	nextlevel
 }
