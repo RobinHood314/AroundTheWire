@@ -19,6 +19,22 @@ function quit (){
 		esac
 	done
 }
+function OTWCheck (){
+	if test -e ./.OTWSave; then
+		echo "Loading OverTheWire save data..."
+	else
+		echo "Creating OverTheWire save data..."
+		mkdir ./.OTWSave
+	fi
+}
+function UTWCheck (){
+	if test -e ./.UTWSave; then
+		echo "Loading UnderTheWire save data..."
+	else
+		echo "Creating UnderTheWire save data..."
+		mkdir ./.UTWSave
+	fi
+}
 function nextlevel (){
 while true; do
 echo "Proceed to the next level?"
@@ -29,6 +45,7 @@ echo "Proceed to the next level?"
 			break
 			;;
 		No)
+			save
 			quit
 			;;
 		*)
@@ -37,147 +54,765 @@ echo "Proceed to the next level?"
 	esac
 done
 }
-function bandit0 (){
-	echo "The password for Bandit0 is bandit0"
-	echo "The password for the next level is in a file"
-	echo "called readme in the home directory"
-	ssh bandit0@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 0!"
+function banditsave (){
+	if test -e ./.OTWSave/.bandit.sav; then
+		echo "Save file found, loading save..."
+	else
+		echo "No save file found"
+		echo "Creating save file..."
+		touch ./.OTWSave/.bandit.sav
+	fi
+	if test -e ./.OTWSave/.bandit.lvl; then
+		echo ""
+	else
+		touch ./.OTWSave/.bandit.lvl
+	fi
+	while true; do
+		echo "Would you like to save your password?"
+		shopt -s nocasematch
+		read -r savepass
+		case "$savepass" in
+			Yes)
+				echo "Enter the next level (if you just completed 4, enter 5)"
+				read -r nextlvl
+				echo "$nextlvl" > ./.OTWSave/.bandit.lvl
+				echo "Enter the acquired password..."
+				read -r acquire
+				echo "$acquire" > ./.OTWSave/.bandit.sav
+				break
+				;;
+			No)
+				echo "Game not saved"
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
+function nextbandit (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			banditsave
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function kryptonsave (){
+	if test -e ./.OTWSave/.krypton.sav; then
+		echo "Save file found, loading save..."
+	else
+		echo "No save file found"
+		echo "Creating save file..."
+		touch ./.OTWSave/.krypton.sav
+	fi
+	while true; do
+		echo "Would you like to save your password?"
+		shopt -s nocasematch
+		read -r savepass
+		case "$savepass" in
+			Yes)
+				echo "Enter the acquired password..."
+				read -r acquire
+				echo "$acquire" > ./.OTWSave/.krypton.sav
+				break
+				;;
+			No)
+				echo "Game not saved"
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
+function nextkrypton (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			kryptonsave
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function leviathansave (){
+	if test -e ./.OTWSave/.leviathan.sav; then
+		echo "Save file found, loading save..."
+	else
+		echo "No save file found"
+		echo "Creating save file..."
+		touch ./.OTWSave/.leviathan.sav
+	fi
+	while true; do
+		echo "Would you like to save your password?"
+		shopt -s nocasematch
+		read -r savepass
+		case "$savepass" in
+			Yes)
+				echo "Enter the acquired password..."
+				read -r acquire
+				echo "$acquire" > ./.OTWSave/.leviathan.sav
+				break
+				;;
+			No)
+				echo "Game not saved"
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
+function nextleviathan (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			leviathansave
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function narniasave (){
+	if test -e ./.OTWSave/.narnia.sav; then
+		echo "Save file found, loading save..."
+	else
+		echo "No save file found"
+		echo "Creating save file..."
+		touch ./.OTWSave/.narnia.sav
+	fi
+	while true; do
+		echo "Would you like to save your password?"
+		shopt -s nocasematch
+		read -r savepass
+		case "$savepass" in
+			Yes)
+				echo "Enter the acquired password..."
+				read -r acquire
+				echo "$acquire" > ./.OTWSave/.narnia.sav
+				break
+				;;
+			No)
+				echo "Game not saved"
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
+function nextnarnia (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			narniasave
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function behemothsave (){
+	if test -e ./.OTWSave/.behemoth.sav; then
+		echo "Save file found, loading save..."
+	else
+		echo "No save file found"
+		echo "Creating save file..."
+		touch ./.OTWSave/.behemoth.sav
+	fi
+	while true; do
+		echo "Would you like to save your password?"
+		shopt -s nocasematch
+		read -r savepass
+		case "$savepass" in
+			Yes)
+				echo "Enter the acquired password..."
+				read -r acquire
+				echo "$acquire" > ./.OTWSave/.behemoth.sav
+				break
+				;;
+			No)
+				echo "Game not saved"
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
+function nextbehemoth (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			behemothsave
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function utumnosave (){
+	if test -e ./.OTWSave/.utumno.sav; then
+		echo "Save file found, loading save..."
+	else
+		echo "No save file found"
+		echo "Creating save file..."
+		touch ./.OTWSave/.utumno.sav
+	fi
+	while true; do
+		echo "Would you like to save your password?"
+		shopt -s nocasematch
+		read -r savepass
+		case "$savepass" in
+			Yes)
+				echo "Enter the acquired password..."
+				read -r acquire
+				echo "$acquire" > ./.OTWSave/.utumno.sav
+				break
+				;;
+			No)
+				echo "Game not saved"
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
+function nextutumno (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			utumnosave
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function mazesave (){
+	if test -e ./.OTWSave/.maze.sav; then
+		echo "Save file found, loading save..."
+	else
+		echo "No save file found"
+		echo "Creating save file..."
+		touch ./.OTWSave/.maze.sav
+	fi
+	while true; do
+		echo "Would you like to save your password?"
+		shopt -s nocasematch
+		read -r savepass
+		case "$savepass" in
+			Yes)
+				echo "Enter the acquired password..."
+				read -r acquire
+				echo "$acquire" > ./.OTWSave/.maze.sav
+				break
+				;;
+			No)
+				echo "Game not saved"
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
+function nextmaze (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			mazesave
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function vortexsave (){
+	if test -e ./.OTWSave/.vortex.sav; then
+		echo "Save file found, loading save..."
+	else
+		echo "No save file found"
+		echo "Creating save file..."
+		touch ./.OTWSave/.vortex.sav
+	fi
+	while true; do
+		echo "Would you like to save your password?"
+		shopt -s nocasematch
+		read -r savepass
+		case "$savepass" in
+			Yes)
+				echo "Enter the acquired password..."
+				read -r acquire
+				echo "$acquire" > ./.OTWSave/.vortex.sav
+				break
+				;;
+			No)
+				echo "Game not saved"
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
+function nextvortex (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			vortexsave
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function manpagesave (){
+	if test -e ./.OTWSave/.manpage.sav; then
+		echo "Save file found, loading save..."
+	else
+		echo "No save file found"
+		echo "Creating save file..."
+		touch ./.OTWSave/.manpage.sav
+	fi
+	while true; do
+		echo "Would you like to save your password?"
+		shopt -s nocasematch
+		read -r savepass
+		case "$savepass" in
+			Yes)
+				echo "Enter the acquired password..."
+				read -r acquire
+				echo "$acquire" > ./.OTWSave/.manpage.sav
+				break
+				;;
+			No)
+				echo "Game not saved"
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
+function nextmanpage (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			manpagesave
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function driftersave (){
+	if test -e ./.OTWSave/.drifter.sav; then
+		echo "Save file found, loading save..."
+	else
+		echo "No save file found"
+		echo "Creating save file..."
+		touch ./.OTWSave/.drifter.sav
+	fi
+	while true; do
+		echo "Would you like to save your password?"
+		shopt -s nocasematch
+		read -r savepass
+		case "$savepass" in
+			Yes)
+				echo "Enter the acquired password..."
+				read -r acquire
+				echo "$acquire" > ./.OTWSave/.drifter.sav
+				break
+				;;
+			No)
+				echo "Game not saved"
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
+function nextdrifter (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			driftersave
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function f1save (){
+	if test -e ./.OTWSave/.drifter.sav; then
+		echo "Save file found, loading save..."
+	else
+		echo "No save file found"
+		echo "Creating save file..."
+		touch ./.OTWSave/.f1.sav
+	fi
+	while true; do
+		echo "Would you like to save your password?"
+		shopt -s nocasematch
+		read -r savepass
+		case "$savepass" in
+			Yes)
+				echo "Enter the acquired password..."
+				read -r acquire
+				echo "$acquire" > ./.OTWSave/.f1.sav
+				break
+				;;
+			No)
+				echo "Game not saved"
+				break
+				;;
+			*)
+				echo "Please enter Yes or No."
+				;;
+		esac
+	done
+}
+function nextf1 (){
+while true; do
+echo "Proceed to the next level?"
+	shopt -s nocasematch
+	read -r cont
+	case "$cont" in
+		Yes)
+			break
+			;;
+		No)
+			f1save
+			quit
+			;;
+		*)
+			echo "Please enter Yes or No"
+			;;
+	esac
+done
+}
+function bandit32 (){
+	echo "Enough git stuff, you earned a break!"
+	echo "Good luck!"
+	ssh bandit32@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 32!"
 	nextlevel
 }
-function bandit1 (){
-	echo "The password for the next level is in a file"
-	echo "called - in the home directory"
-	ssh bandit1@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 1!"
+function bandit31 (){
+	echo "There is a git repository at"
+	echo "ssh://bandit31-git@bandit.labs.overthewire.org/home/bandit31-git/repo"
+	echo "via port 2220, The password  for the user"
+	echo "bandit31-git is the same as for the user bandit31"
+	echo "Clone the repository and find the password!"
+	ssh bandit31@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 31!"
 	nextlevel
+	bandit32
 }
-function bandit2 (){
-	echo "The password for the next level is in a file"
-	echo "called --spaces in this filename-- in the home directory"
-	ssh bandit2@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 2!"
+function bandit30 (){
+	echo "There is a git repository at"
+	echo "ssh://bandit30-git@bandit.labs.overthewire.org/home/bandit30-git/repo"
+	echo "via port 2220, The password  for the user"
+	echo "bandit30-git is the same as for the user bandit30"
+	echo "Clone the repository and find the password!"
+	ssh bandit30@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 30!"
 	nextlevel
+	bandit31
+	bandit32
 }
-function bandit3 (){
-	echo "The password for the next file is in"
-	echo "a hidden file in the inhere directory..."
-	ssh bandit3@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 3!"
+function bandit29 (){
+	echo "There is a git repository at"
+	echo "ssh://bandit29-git@bandit.labs.overthewire.org/home/bandit29-git/repo"
+	echo "via port 2220, The password  for the user"
+	echo "bandit29-git is the same as for the user bandit29"
+	echo "Clone the repository and find the password!"
+	ssh bandit29@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 29!"
 	nextlevel
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit4 (){
-	echo "The password for the next level is in the only"
-	echo "human-readable file in the inhere directory"
-	ssh bandit4@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 4!"
+function bandit28 (){
+	echo "There is a git repository at"
+	echo "ssh://bandit28-git@bandit.labs.overthewire.org/home/bandit28-git/repo"
+	echo "via port 2220, The password  for the user"
+	echo "bandit28-git is the same as for the user bandit28"
+	echo "Clone the repository and find the password!"
+	ssh bandit28@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 28!"
 	nextlevel
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit5 (){
-	echo "The password for the next level is in a file"
-	echo "that is in the inhere directory, human-readable,"
-	echo "1033 bytes in size, and is not executable"
-	ssh bandit5@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 5!"
+function bandit27 (){
+	echo "There is a git repository at"
+	echo "ssh://bandit27-git@bandit.labs.overthewire.org/home/bandit27-git/repo"
+	echo "via port 2220, The password  for the user"
+	echo "bandit27-git is the same as for the user bandit27"
+	echo "Clone the repository and find the password!"
+	ssh bandit27@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 27!"
 	nextlevel
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit6 (){
-	echo "The password for the next level is on the server"
-	echo "and is owned by the user bandit7, the group bandit6,"
-	echo "and is 33 bytes in size"
-	ssh bandit6@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 6!"
+function bandit26 (){
+	echo "Hurry! Grab the password for bandit27!"
+	ssh bandit26@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 26!"
 	nextlevel
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit7 (){
-	echo "The password for the next level is in the file data.txt"
-	echo "and is next to the word millionth"
-	ssh bandit7@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 7!"
+function bandit25 (){
+	echo "Logging in to bandit26 from bandit25" 
+	echo "should be fairly easy… The shell for user" 
+	echo "bandit26 is not /bin/bash, but something else."
+	echo "Find out what it is, how it works," 
+	echo "and how to break out of it."
+	echo "If you're on Windows, use Command Prompt,"
+	echo "as Powershell has been known to cause issues"
+	ssh bandit25@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 25!"
 	nextlevel
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit8 (){
-	echo "The password for the next level is in the file data.txt"
-	echo "and is the only line of text that only occurs once"
-	ssh bandit8@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 8!"
+function bandit24 (){
+	echo "A daemon is listening on port 30002" 
+	echo "and will give you the password for bandit25" 
+	echo "if given the password for bandit24 and a" 
+	echo "secret numeric 4-digit pincode. There is no way" 
+	echo "to retrieve the pincode except by going through" 
+	echo "all of the 10000 combinations, called brute-forcing."
+	ssh bandit24@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 24!"
 	nextlevel
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit9 (){
-	echo "The password for the next level is in the file data.txt"
-	echo "and is one of the human-readable strings, preceded by"
-	echo "several = characters"
-	ssh bandit9@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 9!"
+function bandit23 (){
+	echo "Look in /etc/cron.d/ for the configuration" 
+	echo "and see what command is being executed."
+	echo "This level requires you to create a shell script!"
+	echo "You might want to keep a copy of that script around-"
+	ssh bandit23@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 23!"
 	nextlevel
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit10 (){
-	echo "The password for the next level is in the file data.txt"
-	echo "which contains base64 encoded data"
-	ssh bandit10@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 10!"
+function bandit22 (){
+	echo "Look in /etc/cron.d/ for the configuration" 
+	echo "and see what command is being executed."
+	echo "Note: Looking at the shell script might help"
+	ssh bandit22@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 22!"
 	nextlevel
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit11 (){
-	echo "The password for the next level is in the file data.txt"
-	echo "where all lowercase (a-z) and uppercase letters (A-Z) have"
-	echo "been rotated by 13 positions"
-	ssh bandit11@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 11!"
+function bandit21 (){
+	echo "A program is running automatically at regular" 
+	echo "intervals from cron, the time-based job scheduler." 
+	echo "Look in /etc/cron.d/ for the configuration" 
+	echo "and see what command is being executed."
+	ssh bandit21@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 21!"
 	nextlevel
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit12 (){
-	echo "The password for the next level is in the file data.txt,"
-	echo "which is a hexdump that has been repeatedly compressed"
-	ssh bandit12@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 12!"
+function bandit20 (){
+	echo "There is a setuid binary in the homedirectory" 
+	echo "that does the following: it makes a connection" 
+	echo "to localhost on the port you specify as a" 
+	echo "commandline argument. It then reads a line of" 
+	echo "text from the connection and compares it to the" 
+	echo "password in the previous level. If the password" 
+	echo "is correct, it will transmit the password" 
+	echo "for the next level."
+	ssh bandit20@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 20!"
 	nextlevel
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit13 (){
-	echo "The password for the next level is stored in"
-	echo "/etc/bandit_pass/bandit14, only readable by bandit14"
-	echo "You don't get a password for this level- you get"
-	echo "a private SSH key to log in to the next level"
-	ssh bandit13@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 1!"
+function bandit19 (){
+	echo "The password for this level can be found"
+        echo "in the usual place /etc/bandit_pass, after"
+	echo "you have set the setuid binary"
+	ssh bandit19@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 19!"
 	nextlevel
-}
-function bandit14 (){
-	echo "The password for the next level can be retrieved"
-	echo "by submitting the password of the current leve to"
-	echo "port 30000 on localhost"
-	ssh bandit14@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 14!"
-	nextlevel
-}
-function bandit15 (){
-	echo "The password for the next level can be retrieved by"
-	echo "submitting the password of the current level to port 30001"
-	echo "on localhost using SSL/TLS encryption."
-	ssh bandit15@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 15!"
-	nextlevel
-}
-function bandit16 (){
-	echo "The password for the next level can be retrieved" 
-	echo "by submitting the password of the current level"
-	echo "to a port on localhost in the range of 31000 to 32000"
-	echo "First find out which of these ports have a server" 
-	echo "listening on them. Then find out which of those" 
-	echo "speak SSL/TLS and which don’t. There is only 1 server" 
-	echo "that will give the next credentials, the others will" 
-	echo "simply send back to you whatever you send to it."
-	ssh bandit16@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 16!"
-	nextlevel
-}
-function bandit17 (){
-	echo "The password for the next level is in passwords.new"
-       	echo "and is the only line that has been changed between" 
-	echo "passwords.old and passwords.new"
-	ssh bandit17@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 17!"
-	nextlevel
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
 function bandit18 (){
 	echo "The password for the next level is in"
@@ -202,178 +837,780 @@ function bandit18 (){
 done
 echo "Congratulations on beating Level 18!"
 nextlevel
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit19 (){
-	echo "The password for this level can be found"
-        echo "in the usual place /etc/bandit_pass, after"
-	echo "you have set the setuid binary"
-	ssh bandit19@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 19!"
+function bandit17 (){
+	echo "The password for the next level is in passwords.new"
+       	echo "and is the only line that has been changed between" 
+	echo "passwords.old and passwords.new"
+	ssh bandit17@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 17!"
 	nextlevel
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit20 (){
-	echo "There is a setuid binary in the homedirectory" 
-	echo "that does the following: it makes a connection" 
-	echo "to localhost on the port you specify as a" 
-	echo "commandline argument. It then reads a line of" 
-	echo "text from the connection and compares it to the" 
-	echo "password in the previous level. If the password" 
-	echo "is correct, it will transmit the password" 
-	echo "for the next level."
-	ssh bandit20@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 20!"
+function bandit16 (){
+	echo "The password for the next level can be retrieved" 
+	echo "by submitting the password of the current level"
+	echo "to a port on localhost in the range of 31000 to 32000"
+	echo "First find out which of these ports have a server" 
+	echo "listening on them. Then find out which of those" 
+	echo "speak SSL/TLS and which don’t. There is only 1 server" 
+	echo "that will give the next credentials, the others will" 
+	echo "simply send back to you whatever you send to it."
+	ssh bandit16@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 16!"
 	nextlevel
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit21 (){
-	echo "A program is running automatically at regular" 
-	echo "intervals from cron, the time-based job scheduler." 
-	echo "Look in /etc/cron.d/ for the configuration" 
-	echo "and see what command is being executed."
-	ssh bandit21@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 21!"
+function bandit15 (){
+	echo "The password for the next level can be retrieved by"
+	echo "submitting the password of the current level to port 30001"
+	echo "on localhost using SSL/TLS encryption."
+	ssh bandit15@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 15!"
 	nextlevel
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit22 (){
-	echo "Look in /etc/cron.d/ for the configuration" 
-	echo "and see what command is being executed."
-	echo "Note: Looking at the shell script might help"
-	ssh bandit22@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 22!"
+function bandit14 (){
+	echo "The password for the next level can be retrieved"
+	echo "by submitting the password of the current leve to"
+	echo "port 30000 on localhost"
+	ssh bandit14@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 14!"
 	nextlevel
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit23 (){
-	echo "Look in /etc/cron.d/ for the configuration" 
-	echo "and see what command is being executed."
-	echo "This level requires you to create a shell script!"
-	echo "You might want to keep a copy of that script around-"
-	ssh bandit23@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 23!"
+function bandit13 (){
+	echo "The password for the next level is stored in"
+	echo "/etc/bandit_pass/bandit14, only readable by bandit14"
+	echo "You don't get a password for this level- you get"
+	echo "a private SSH key to log in to the next level"
+	ssh bandit13@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 1!"
 	nextlevel
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit24 (){
-	echo "A daemon is listening on port 30002" 
-	echo "and will give you the password for bandit25" 
-	echo "if given the password for bandit24 and a" 
-	echo "secret numeric 4-digit pincode. There is no way" 
-	echo "to retrieve the pincode except by going through" 
-	echo "all of the 10000 combinations, called brute-forcing."
-	ssh bandit24@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 24!"
+function bandit12 (){
+	echo "The password for the next level is in the file data.txt,"
+	echo "which is a hexdump that has been repeatedly compressed"
+	ssh bandit12@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 12!"
 	nextlevel
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit25 (){
-	echo "Logging in to bandit26 from bandit25" 
-	echo "should be fairly easy… The shell for user" 
-	echo "bandit26 is not /bin/bash, but something else."
-	echo "Find out what it is, how it works," 
-	echo "and how to break out of it."
-	echo "If you're on Windows, use Command Prompt,"
-	echo "as Powershell has been known to cause issues"
-	ssh bandit25@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 25!"
+function bandit11 (){
+	echo "The password for the next level is in the file data.txt"
+	echo "where all lowercase (a-z) and uppercase letters (A-Z) have"
+	echo "been rotated by 13 positions"
+	ssh bandit11@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 11!"
 	nextlevel
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit26 (){
-	echo "Hurry! Grab the password for bandit27!"
-	ssh bandit26@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 26!"
+function bandit10 (){
+	echo "The password for the next level is in the file data.txt"
+	echo "which contains base64 encoded data"
+	ssh bandit10@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 10!"
 	nextlevel
+	bandit11
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit27 (){
-	echo "There is a git repository at"
-	echo "ssh://bandit27-git@bandit.labs.overthewire.org/home/bandit27-git/repo"
-	echo "via port 2220, The password  for the user"
-	echo "bandit27-git is the same as for the user bandit27"
-	echo "Clone the repository and find the password!"
-	ssh bandit27@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 27!"
+function bandit9 (){
+	echo "The password for the next level is in the file data.txt"
+	echo "and is one of the human-readable strings, preceded by"
+	echo "several = characters"
+	ssh bandit9@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 9!"
 	nextlevel
+	bandit10
+	bandit11
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit28 (){
-	echo "There is a git repository at"
-	echo "ssh://bandit28-git@bandit.labs.overthewire.org/home/bandit28-git/repo"
-	echo "via port 2220, The password  for the user"
-	echo "bandit28-git is the same as for the user bandit28"
-	echo "Clone the repository and find the password!"
-	ssh bandit28@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 28!"
+function bandit8 (){
+	echo "The password for the next level is in the file data.txt"
+	echo "and is the only line of text that only occurs once"
+	ssh bandit8@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 8!"
 	nextlevel
+	bandit10
+	bandit11
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit29 (){
-	echo "There is a git repository at"
-	echo "ssh://bandit29-git@bandit.labs.overthewire.org/home/bandit29-git/repo"
-	echo "via port 2220, The password  for the user"
-	echo "bandit29-git is the same as for the user bandit29"
-	echo "Clone the repository and find the password!"
-	ssh bandit29@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 29!"
+function bandit7 (){
+	echo "The password for the next level is in the file data.txt"
+	echo "and is next to the word millionth"
+	ssh bandit7@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 7!"
 	nextlevel
+	bandit8
+	bandit9
+	bandit10
+	bandit11
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit30 (){
-	echo "There is a git repository at"
-	echo "ssh://bandit30-git@bandit.labs.overthewire.org/home/bandit30-git/repo"
-	echo "via port 2220, The password  for the user"
-	echo "bandit30-git is the same as for the user bandit30"
-	echo "Clone the repository and find the password!"
-	ssh bandit30@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 30!"
+function bandit6 (){
+	echo "The password for the next level is on the server"
+	echo "and is owned by the user bandit7, the group bandit6,"
+	echo "and is 33 bytes in size"
+	ssh bandit6@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 6!"
 	nextlevel
+	bandit7
+	bandit8
+	bandit9
+	bandit10
+	bandit11
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit31 (){
-	echo "There is a git repository at"
-	echo "ssh://bandit31-git@bandit.labs.overthewire.org/home/bandit31-git/repo"
-	echo "via port 2220, The password  for the user"
-	echo "bandit31-git is the same as for the user bandit31"
-	echo "Clone the repository and find the password!"
-	ssh bandit31@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 31!"
+function bandit5 (){
+	echo "The password for the next level is in a file"
+	echo "that is in the inhere directory, human-readable,"
+	echo "1033 bytes in size, and is not executable"
+	ssh bandit5@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 5!"
 	nextlevel
+	bandit6
+	bandit7
+	bandit8
+	bandit9
+	bandit10
+	bandit11
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
-function bandit32 (){
-	echo "Enough git stuff, you earned a break!"
-	echo "Good luck!"
-	ssh bandit32@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 32!"
+function bandit4 (){
+	echo "The password for the next level is in the only"
+	echo "human-readable file in the inhere directory"
+	ssh bandit4@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 4!"
 	nextlevel
+	bandit5
+	bandit6
+	bandit7
+	bandit8
+	bandit9
+	bandit10
+	bandit11
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
+}
+function bandit3 (){
+	echo "The password for the next file is in"
+	echo "a hidden file in the inhere directory..."
+	ssh bandit3@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 3!"
+	nextlevel
+	bandit4
+	bandit5
+	bandit6
+	bandit7
+	bandit8
+	bandit9
+	bandit10
+	bandit11
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
+}
+function bandit2 (){
+	echo "The password for the next level is in a file"
+	echo "called --spaces in this filename-- in the home directory"
+	ssh bandit2@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 2!"
+	nextlevel
+	bandit3
+	bandit4
+	bandit5
+	bandit6
+	bandit7
+	bandit8
+	bandit9
+	bandit10
+	bandit11
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
+}
+function bandit1 (){
+	echo "The password for the next level is in a file"
+	echo "called - in the home directory"
+	ssh bandit1@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 1!"
+	nextlevel
+	bandit2
+	bandit3
+	bandit4
+	bandit5
+	bandit6
+	bandit7
+	bandit8
+	bandit9
+	bandit10
+	bandit11
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
+}
+function bandit0 (){
+	echo "The password for Bandit0 is bandit0"
+	echo "The password for the next level is in a file"
+	echo "called readme in the home directory"
+	ssh bandit0@bandit.labs.overthewire.org -p 2220
+	echo "Congratulations on beating Level 0!"
+	nextbandit
+	bandit1
+	bandit2
+	bandit3
+	bandit4
+	bandit5
+	bandit6
+	bandit7
+	bandit8
+	bandit9
+	bandit10
+	bandit11
+	bandit12
+	bandit13
+	bandit14
+	bandit15
+	bandit16
+	bandit17
+	bandit18
+	bandit19
+	bandit20
+	bandit21
+	bandit22
+	bandit23
+	bandit24
+	bandit25
+	bandit26
+	bandit27
+	bandit28
+	bandit29
+	bandit30
+	bandit31
+	bandit32
 }
 function bandit (){
 echo "Welcome to Bandit! An OverTheWire Wargame!"
 echo "This wargame is geared for both beginners..."
 echo "And seasoned Linux CLI Veterans alike!"
 sleep 3
+echo "Searching for save data..."
+sleep 2
+if test -e ./.OTWSave/.bandit.sav; then
+	while true; do
+		echo "Save file detected. Continue save game?"
+		shopt -s nocasematch
+		read -r contsave
+		case "$contsave" in
+			Yes)
+				while true; do
+					echo "Enter the level you left off on"
+					echo "The next level is $(cat ./.OTWSave/.bandit.lvl)"	
+					echo "(If you last completed level 4, enter 5)"
+					shopt -s nocasematch
+					read -r level
+					case "$level" in
+						1)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit1@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit2
+							;;
+						2)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit2@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit3
+							;;
+						3)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit3@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit4
+							;;
+						4)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit4@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit5
+							;;
+						5)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit5@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit6
+							;;
+						6)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit6@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit7
+							;;
+						7)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit7@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit8
+							;;
+						8)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit8@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit9
+							;;
+						9)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit9@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit10
+							;;
+						10)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit10@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit11
+							;;
+						11)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit11@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit12
+							;;
+						12)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit12@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit13
+							;;
+						13)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit13@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit14
+							;;
+						14)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit14@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit15
+							;;
+						15)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit15@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit16
+							;;
+						16)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit16@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit17
+							;;
+						17)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit17@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit18
+							;;
+						18)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit18@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit19
+							;;
+						19)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit19@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit20
+							;;
+						20)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit20@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit21
+							;;
+						21)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit21@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit22
+							;;
+						22)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit22@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit23
+							;;
+						23)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit23@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit24
+							;;
+						24)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit24@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit25
+							;;
+						25)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit25@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit26
+							;;
+						26)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit26@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit27
+							;;
+						27)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit27@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit28
+							;;
+						28)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit28@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit29
+							;;
+						29)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit29@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit30
+							;;
+						30)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit30@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit31
+							;;
+						31)
+							sshpass -p $(cat ./.OTWSave/.bandit.sav) ssh bandit31@bandit.labs.overthewire.org -p 2220
+							nextlevel
+							bandit32
+							;;
+						*)
+							echo "Please enter Yes or No."
+							;;
+					esac
+				done
+				;;
+			No)
+				echo "Starting new game..."
+				break
+				;;
+			*)
+				echo "Please enter Yes or No"
+				;;
+		esac
+	done
+else
+	echo "No save data detected, starting new game..."
+fi
 bandit0
-bandit1
-bandit2
-bandit3
-bandit4
-bandit5
-bandit6
-bandit7
-bandit8
-bandit9
-bandit10
-bandit11
-bandit12
-bandit13
-bandit14
-bandit15
-bandit16
-bandit17
-bandit18
-bandit19
-bandit20
-bandit21
-bandit22
-bandit23
-bandit24
-bandit25
-bandit26
-bandit27
-bandit28
-bandit29
-bandit30
-bandit31
-bandit32
 }
 function krypton1(){
 	echo "Getting into the first level is easy..."
@@ -980,6 +2217,7 @@ function formulaone (){
 	echo "Congratulations on beating Level 5!"
 }
 function OTW (){
+	OTWCheck
 	echo "Welcome to OverTheWire Wargames!"
 	echo "DISCLAIMER!"
 	echo "I do not own OverTheWire or its wargames,"
@@ -1428,6 +2666,7 @@ function trebek (){
 	echo "Congratulations on beating Level 15!"
 }
 function UTW (){
+	UTWCheck
 	echo "Welcome to UnderTheWire:"
 	echo "Powershell training for the people"
 	sleep 1
@@ -1530,39 +2769,3 @@ while true; do
 done
 }
 AroundTheWire
-function titlescreen (){
-	while true; do
-		echo "Return to the Title Screen?"
-		shopt -s nocasematch
-		read -r title
-		case "$title" in
-			Yes)
-				while true; do
-				echo "Are you sure you want to"
-				echo "go to the Title Screen?"
-				echo "Unsaved progress will be lost."
-				shopt -s nocasematch
-				read -r confirmtitle
-				case "$confirmtitle" in
-					Yes)
-						AroundTheWire
-						break
-						;;
-					No)
-						break
-						;;
-					*)
-						echo "Please enter Yes or No"
-						;;
-				esac
-			done
-			;;
-			No)
-				break
-				;;
-			*)
-				echo "Please enter Yes or No."
-				;;
-		esac
-	done
-}
