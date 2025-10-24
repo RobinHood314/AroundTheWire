@@ -285,13 +285,14 @@ function bandit17 (){
 	echo "The password for the next level is in passwords.new"
        	echo "and is the only line that has been changed between" 
 	echo "passwords.old and passwords.new"
-	ssh bandit17@bandit.labs.overthewire.org -p 2220
+	sleep 3
+	ssh bandit17@bandit.labs.overthewire.org -p 2220 -i rsakey
 	echo "Congratulations on beating Level 17!"
 	nextbandit
 	bandit18
 }
 function bandit16 (){
-	echo "The password for the next level can be retrieved" 
+	echo "The credentials for the next level can be retrieved" 
 	echo "by submitting the password of the current level"
 	echo "to a port on localhost in the range of 31000 to 32000"
 	echo "First find out which of these ports have a server" 
@@ -301,6 +302,27 @@ function bandit16 (){
 	echo "simply send back to you whatever you send to it."
 	ssh bandit16@bandit.labs.overthewire.org -p 2220
 	echo "Congratulations on beating Level 16!"
+	echo "You may have noticed you got another SSH key (see Bandit 13)"
+	echo "I hope you have is copied because you'll need it!"
+	sleep 1
+	while true; do
+		echo "Open your favorite terminal text editor to create a file called rsakey!"
+		read -r rsatext
+		case "$rsatext" in
+			"vim rsakey")
+				vim rsakey
+				break
+				;;
+			"nano rsakey")
+				nano rsakey
+				break
+				;;
+			"gedit rsakey")
+				gedit rsakey
+				break
+				;;
+		esac
+	done
 	nextbandit
 	bandit17
 }
@@ -328,7 +350,20 @@ function bandit13 (){
 	echo "You don't get a password for this level- you get"
 	echo "a private SSH key to log in to the next level"
 	ssh bandit13@bandit.labs.overthewire.org -p 2220
-	echo "Congratulations on beating Level 1!"
+	echo "Congratulations-! Oh right, OverTheWire doesn't want you to connect from localhost now-"
+	echo "The private SSH key is called sshkey.private"
+	while true; do
+		echo "You'll have to use a Simple Command Prior to copying the key to the current directory..."
+		read -r simple
+		case "$simple" in
+			"scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .")
+				scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
+				;;
+			*)
+				echo "That's not the right command, try again!"
+				;;
+		esac
+	done
 	nextbandit
 	bandit14
 }
@@ -463,26 +498,37 @@ if test -e ./.OTWSave/.bandit.sav; then
 					read -r level
 					case "$level" in
 						1)
+							echo "The password for the next level is in a file"
+							echo "called - in the home directory"
 							sshpass -p "$(cat ./.OTWSave/.bandit.sav)" ssh bandit1@bandit.labs.overthewire.org -p 2220
 							nextbandit
 							bandit2
 							;;
 						2)
+							echo "The password for the next level is in a file"
+							echo "called --spaces in this filename-- in the home directory"
 							sshpass -p "$(cat ./.OTWSave/.bandit.sav)" ssh bandit2@bandit.labs.overthewire.org -p 2220
 							nextbandit
 							bandit3
 							;;
 						3)
+							echo "The password for the next file is in"
+							echo "a hidden file in the inhere directory..."
 							sshpass -p "$(cat ./.OTWSave/.bandit.sav)" ssh bandit3@bandit.labs.overthewire.org -p 2220
 							nextbandit
 							bandit4
 							;;
 						4)
+							echo "The password for the next level is in the only"
+							echo "human-readable file in the inhere directory"
 							sshpass -p "$(cat ./.OTWSave/.bandit.sav)" ssh bandit4@bandit.labs.overthewire.org -p 2220
 							nextbandit
 							bandit5
 							;;
 						5)
+							echo "The password for the next level is in a file"
+							echo "that is in the inhere directory, human-readable,"
+							echo "1033 bytes in size, and is not executable"
 							sshpass -p "$(cat ./.OTWSave/.bandit.sav)" ssh bandit5@bandit.labs.overthewire.org -p 2220
 							nextbandit
 							bandit6
@@ -523,7 +569,47 @@ if test -e ./.OTWSave/.bandit.sav; then
 							bandit13
 							;;
 						13)
+							
+							echo "The password for the next level is stored in"
+							echo "/etc/bandit_pass/bandit14, only readable by bandit14"
+							echo "You don't get a password for this level- you get"
+							echo "a private SSH key to log in to the next level"
 							sshpass -p "$(cat ./.OTWSave/.bandit.sav)" ssh bandit13@bandit.labs.overthewire.org -p 2220
+							echo "Congratulations-! Oh right, OverTheWire doesn't want you to connect from localhost now-"
+							echo "The private SSH key is called sshkey.private"
+							while true; do
+								echo "You'll have to use a Simple Command Prior to copying the key to the current directory..."
+								read -r simple
+								case "$simple" in
+								"scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .")
+									echo "Enter the password for bandit13..."
+									echo "Since your save file led you here, here's the password..."
+									cat ./.OTWSave/.bandit.sav
+									scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
+									break
+									;;
+								*)
+									echo "That's not the right command, try again!"
+									;;
+								esac
+							done
+							while true; do
+								echo "Perfect! Now just change the permissions for the key..."
+								echo "Just make sure they aren't too open"
+								read -r perms
+								case "$perms" in
+									"chmod 700 sshkey.private")
+										chmod 700 sshkey.private
+										break
+										;;
+									*)
+										echo "Those aren't the right permissions... Try again!"
+										;;
+								esac
+							done
+							echo "The password for bandit14 is in /etc/bandit_pass/bandit14"
+							echo "(You'll need the password- trust me)"
+							ssh bandit14@bandit.labs.overthewire.org -p 2220 -i sshkey.private
 							nextbandit
 							bandit14
 							;;
@@ -538,17 +624,75 @@ if test -e ./.OTWSave/.bandit.sav; then
 							bandit16
 							;;
 						16)
+							echo "Since your save file brought you here..."
+							echo "You'll need the password, so here it is!"
+							cat ./.OTWSave/.bandit.sav
 							sshpass -p "$(cat ./.OTWSave/.bandit.sav)" ssh bandit16@bandit.labs.overthewire.org -p 2220
+							echo "Congratulations on beating Level 16!"
+							echo "You may have noticed you got another SSH key (see Bandit 13)"
+							echo "I hope you have is copied because you'll need it!"
+							sleep 1
+							while true; do
+								echo "Open your favorite terminal text editor to create a file called rsakey!"
+								echo "Make sure to save your file"
+								read -r rsatext
+								case "$rsatext" in
+									"vim rsakey")
+										vim rsakey
+										break
+										;;
+									"nano rsakey")
+										nano rsakey
+										break
+										;;
+									"gedit rsakey")
+										gedit rsakey
+										break
+										;;
+								esac
+							done
+							while true; do
+								echo "Now change the permissions for your rsafile..."
+								echo "Just make sure no one else can see your key-"
+								read -r rsaperm
+								case "$rsaperm" in
+									"chmod 700 rsakey")
+										chmod 700 rsakey
+										break
+										;;
+									*)
+										echo "Those aren't the right permissions, try again!"
+										;;
+								esac
+							done
 							nextbandit
 							bandit17
 							;;
 						17)
-							sshpass -p "$(cat ./.OTWSave/.bandit.sav)" ssh bandit17@bandit.labs.overthewire.org -p 2220
+							ssh bandit17@bandit.labs.overthewire.org -p 2220 -i rsakey
 							nextbandit
 							bandit18
 							;;
 						18)
 							sshpass -p "$(cat ./.OTWSave/.bandit.sav)" ssh bandit18@bandit.labs.overthewire.org -p 2220
+							echo "Congratulations on beating- Wait a minute..."
+							sleep 2
+							echo "You got kicked out? Oh- I see..."
+							sleep 2
+							echo "Someone must have modified .bashrc..."
+							echo "You'll have to enter a certain SSH command-"
+							while true; do
+								read -r sshcommand
+								case "$sshcommand" in
+									"ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme")
+									ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
+									;;
+									*)
+									echo "That's not the right command, try again!"
+									;;
+								esac
+							done
+							echo "Congratulations on beating Level 18!"
 							nextbandit
 							bandit19
 							;;
@@ -780,27 +924,42 @@ if test -e ./.OTWSave/.krypton.sav; then
 					shopt -s nocasematch
 					read -r level
 					case "$level" in
-						1)
-							sshpass -p "$(cat ./.OTWSave/.krypton.sav)" ssh krypton1@krypton.labs.overthewire.org -p 2231
-							nextkrypton
-							krypton2
-							;;
 						2)
+							echo "The password for the next level is in"
+							echo "the file krypton3, which is encrypted with"
+							echo "a Caesar Cipher, which shifts the alphabet by"
+							echo "a set number... Think logically, and it will be easy"	
 							sshpass -p "$(cat ./.OTWSave/.krypton.sav)" ssh krypton2@krypton.labs.overthewire.org -p 2231
 							nextkrypton
 							krypton3
 							;;
 						3)
+							echo "The password for the next level is in"
+							echo "the file krypton4, you got lucky and you"
+							echo "also have 3 other files, found1, found2,"
+							echo "and found3... The message plaintexts are in"
+							echo "American English, all produced from the same key"
 							sshpass -p "$(cat ./.OTWSave/.krypton.sav)" ssh krypton3@krypton.labs.overthewire.org -p 2231
 							nextkrypton
 							krypton4
 							;;
 						4)
+							echo "The password for the next level is in"
+							echo "its usual place, encrypted with a 6 letter key"
+							echo "This level uses a Vigenere Cipher, which is"
+							echo "a type of polyalphabetic substitution cypher"
+							echo "It works like this, If we use the key(K) 'GOLD'," 
+							echo "and P = PROCEED MEETING AS AGREED, then add" 
+							echo "P to K, we get C. When adding, if we exceed 25," 
+							echo "then we roll to 0 (modulo 26)."
 							sshpass -p "$(cat ./.OTWSave/.krypton.sav)" ssh krypton4@krypton.labs.overthewire.org -p 2231
 							nextkrypton
 							krypton5
 							;;
 						5)
+							echo "This level is like the last, the only"
+							echo "difference is that the key length is unknown"
+							echo "The text is in American English"
 							sshpass -p "$(cat ./.OTWSave/.krypton.sav)" ssh krypton5@krypton.labs.overthewire.org -p 2231
 							nextkrypton
 							krypton6
@@ -956,31 +1115,51 @@ if test -e ./.OTWSave/.leviathan.sav; then
 					read -r level
 					case "$level" in
 						1)
+							echo "Behold, the hope of him is in vain:"
+							echo "shall not one be cast down even at the sight of him?"
+							echo "None is so fierce that dare stir him up..."
 							sshpass -p "$(cat ./.OTWSave/.leviathan.sav)" ssh leviathan1@leviathan.labs.overthewire.org -p 2223
 							nextleviathan
 							leviathan2
 							;;
 						2)
+							echo "Out of his mouth go burning lamps,"
+							echo "and sparks of fire leap out."
+							echo "Out of his nostrils goeth smoke,"
+							echo "as out of a seething pot or caldron..."
 							sshpass -p "$(cat ./.OTWSave/.leviathan.sav)" ssh leviathan2@leviathan.labs.overthewire.org -p 2223
 							nextleviathan
 							leviathan3
 							;;
 						3)
+							echo "His heart is as firm as a stone; yea,"
+							echo "as hard as a piece of the nether millstone"
+							echo "When he raiseth up himself, the mighty are afraid"
 							sshpass -p "$(cat ./.OTWSave/.levithan.sav)" ssh leviathan3@leviathan.labs.overthewire.org -p 2223
 							nextleviathan
 							leviathan4
 							;;
 						4)
-							sshpass -p "$(cat ./.OTWSave/.leviathan.sav)" ssh krypton4@krypton.labs.overthewire.org -p 2223
+							echo "The sword of him that layeth at him cannot hold:"
+							echo "the spear, the dart, nor the habergeon"
+							echo "He esteemeth iron as straw, and brass as rotten wood"
+							sshpass -p "$(cat ./.OTWSave/.leviathan.sav)" ssh leviathan4@leviathan.labs.overthewire.org -p 2223
 							nextleviathan
 							leviathan5
 							;;
 						5)
+							echo "The arrow cannot make him flee: slingstones are turned"
+							echo "with him into stubble. Darts are counted as stubble:"
+							echo "he laugheth at the shaking of the spear."
 							sshpass -p "$(cat ./.OTWSave/.levithan.sav)" ssh leviathan5@leviathan.labs.overthewire.org -p 2223
 							nextleviathan
 							leviathan6
 							;;
 						6)
+							echo "Darts are counted as stubble: he laugheth at"
+							echo "Sharp stones are under him: he spreadeth" 
+							echo "sharp pointed things upon the mire..."
+							echo "He maketh the deep to boil like a pot"
 							sshpass -p "$(cat ./.OTWSave/.levithan.sav)" ssh leviathan5@leviathan.labs.overthewire.org -p 2223
 							echo "Congratulations on beating Level 6!"
 							;;					
@@ -1001,7 +1180,7 @@ if test -e ./.OTWSave/.leviathan.sav; then
 	done
 else
 	echo "No save file found, starting new game..."
-	levithan1
+	leviathan1
 fi
 }
 function narniasave (){
@@ -1052,45 +1231,132 @@ echo "Proceed to the next level?"
 	esac
 done
 }
-function narnia (){
+function narnia8 (){
+	echo "Enter the password for Level 8..."
+	ssh narnia8@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 8!"
+}
+function narnia7 (){
+	echo "Enter the password for Level 7..."
+	ssh narnia7@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 7!"
+	nextnarnia
+}
+function narnia6 (){
+	echo "Enter the password for Level 6..."
+	ssh narnia6@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 6!"
+	nextnarnia
+}
+function narnia5 (){
+	echo "Enter the password for Level 5..."
+	ssh narnia5@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 5!"
+	nextnarnia
+}
+function narnia4 (){
+	echo "Enter the password for Level 4..."
+	ssh narnia4@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 4!"
+	nextnarnia
+}
+function narnia3 (){
+	echo "Enter the password for Level 3..."
+	ssh narnia3@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 3!"
+	nextnarnia
+}
+function narnia2 (){
+	echo "Enter the password for Level 2..."
+	ssh narnia3@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 2!"
+	nextnarnia
+}
+function narnia1 (){
+	echo "Enter the password for Level 1..."
+	ssh narnia1@narnia.labs.overthewire.org -p 2226
+	echo "Congratulations on beating Level 1!"
+	nextnarnia
+}
+function narnia0 (){
 	echo "Welcome to Narnia! An OverTheWire wargame"
 	sleep 2
 	echo "Enter the password for Level 0..."
 	ssh narnia0@narnia.labs.overthewire.org -p 2226
 	echo "Congratulations on beating Level 0!"
-	nextlevel
-	echo "Enter the password for Level 1..."
-	ssh narnia1@narnia.labs.overthewire.org -p 2226
-	echo "Congratulations on beating Level 1!"
-	nextlevel
-	echo "Enter the password for Level 2..."
-	ssh narnia3@narnia.labs.overthewire.org -p 2226
-	echo "Congratulations on beating Level 2!"
-	nextlevel
-	echo "Enter the password for Level 3..."
-	ssh narnia3@narnia.labs.overthewire.org -p 2226
-	echo "Congratulations on beating Level 3!"
-	nextlevel
-	echo "Enter the password for Level 4..."
-	ssh narnia4@narnia.labs.overthewire.org -p 2226
-	echo "Congratulations on beating Level 4!"
-	nextlevel
-	echo "Enter the password for Level 5..."
-	ssh narnia5@narnia.labs.overthewire.org -p 2226
-	echo "Congratulations on beating Level 5!"
-	nextlevel
-	echo "Enter the password for Level 6..."
-	ssh narnia6@narnia.labs.overthewire.org -p 2226
-	echo "Congratulations on beating Level 6!"
-	nextlevel
-	echo "Enter the password for Level 7..."
-	ssh narnia7@narnia.labs.overthewire.org -p 2226
-	echo "Congratulations on beating Level 7!"
-	nextlevel
-	echo "Enter the password for Level 8..."
-	ssh narnia8@narnia.labs.overthewire.org -p 2226
-	echo "Congratulations on beating Level 8!"
+	nextnarnia
 }
+function narnia (){
+	echo "Welcome to Narnia! An OverTheWire wargame"
+	sleep 2
+if test -e ./.OTWSave/.narnia.sav; then
+	while true; do
+		echo "Save file detected. Continue save game?"
+		shopt -s nocasematch
+		read -r contsave
+		case "$contsave" in
+			Yes)
+				while true; do
+					echo "Enter the level you left off on"
+					echo "The next level is $(cat ./.OTWSave/.narnia.lvl)"	
+					echo "(If you last completed level 4, enter 5)"
+					shopt -s nocasematch
+					read -r level
+					case "$level" in
+						1)
+							sshpass -p "$(cat ./.OTWSave/.narnia.sav)" ssh narnia1@narnia.labs.overthewire.org -p 2226
+							nextnarnia
+							narnia2
+							;;
+						2)
+							sshpass -p "$(cat ./.OTWSave/.narnia.sav)" ssh narnia2@narnia.labs.overthewire.org -p 2226
+							nextnarnia
+							narnia3
+							;;
+						3)
+							sshpass -p "$(cat ./.OTWSave/.narnia.sav)" ssh narnia3@narnia.labs.overthewire.org -p 2226
+							nextnarnia
+							narnia4
+							;;
+						4)
+							sshpass -p "$(cat ./.OTWSave/.narnia.sav)" ssh narnia4@narnia.labs.overthewire.org -p 2226
+							nextnarnia
+							narnia5
+							;;
+						5)
+							sshpass -p "$(cat ./.OTWSave/.narnia.sav)" ssh narnia5@narnia.labs.overthewire.org -p 2226
+							nextnarnia
+							narnia6
+							;;
+						6)
+							sshpass -p "$(cat ./.OTWSave/.narnia.sav)" ssh narnia6@narnia.labs.overthewire.org -p 2226
+							echo "Congratulations on beating Level 6!"
+							;;
+						7)
+							sshpass -p "$(cat ./.OTWSave/.narnia.sav)" ssh narnia7@narnia.labs.overthewire.org -p 2226
+							echo "Congratulations on beating Level 7!"
+							;;
+						*)
+							echo "Please enter Yes or No"
+							;;
+					esac
+				done
+				;;
+			No)
+				echo "Starting new game..."
+				narnia0
+				;;
+			*)
+				echo "Please enter Yes or No"
+				;;
+		esac
+	done
+else
+	echo "No save file found, starting new game..."
+	narnia0
+fi
+}
+
 function behemothsave (){
 	if test -e ./.OTWSave/.behemoth.sav; then
 		echo "Save file found, loading save..."
@@ -1139,62 +1405,6 @@ echo "Proceed to the next level?"
 	esac
 done
 }
-function behemoth0 (){
-	echo "Lo now, his strength is in his lions,"
-	echo "and the force is in the navel of his belly."
-	echo "Enter the password for Level 0..."
-	ssh behemoth0@narnia.labs.overthewire.org -p 2221
-	echo "Congratulations on beating Level 0!"
-	nextlevel
-}
-function behemoth1 (){
-	echo "He moveth his tail like a cedar: the"
-	echo "sinews of his stones are wrapped together"
-	echo "Enter the password for Level 1..."
-	ssh behemoth1@narnia.labs.overthewire.org -p 2221
-	echo "Congratulations on beating Level 1!"
-	nextlevel	
-}
-function behemoth2 (){
-	echo "His bones are as strong pieces of brass;"
-	echo "his bones are like bars of iron."
-	echo "Enter the password for Level 2..."
-	ssh behemoth2@narnia.labs.overthewire.org -p 2221
-	echo "Congratulations on beating Level 2!"
-	nextlevel	
-}
-function behemoth3 (){
-	echo "He is the chief of the ways of God: he that"
-	echo "made him can make his sword to approach unto him"
-	echo "Enter the password for Level 3..."
-	ssh behemoth3@narnia.labs.overthewire.org -p 2221
-	echo "Congratulations on beating Level 3!"
-	nextlevel	
-}
-function behemoth4 (){
-	echo "Surely the mountains bring him forth food,"
-	echo "where all the beasts of the field play."
-	echo "Enter the password for Level 4..."
-	ssh behemoth4@narnia.labs.overthewire.org -p 2221
-	echo "Congratulations on beating Level 4!"
-	nextlevel	
-}
-function behemoth5 (){
-	echo "He lieth under the shady trees," 
-	echo "in the covert of the reed, and fens."
-	echo "Enter the password for Level 5..."
-	ssh behemoth5@narnia.labs.overthewire.org -p 2221
-	echo "Congratulations on beating Level 5!"
-	nextlevel
-}
-function behemoth6 (){
-	echo "The shady trees cover him with their shadow;"
-	echo "the willows of the brook compass him about."
-	echo "Enter the password for Level 6..."
-	ssh behemoth6@narnia.labs.overthewire.org -p 2221
-	echo "Congratulations on beating Level 6!"
-	nextlevel	
-}
 function behemoth7 (){
 	echo "Behold, he drinketh up a river, and hasteth not:"
 	echo "he trusteth that he can draw up Jordan into his mouth."
@@ -1202,20 +1412,155 @@ function behemoth7 (){
 	ssh behemoth7@narnia.labs.overthewire.org -p 2221
 	echo "Congratulations on beating Level 7!"
 }
+function behemoth6 (){
+	echo "The shady trees cover him with their shadow;"
+	echo "the willows of the brook compass him about."
+	echo "Enter the password for Level 6..."
+	ssh behemoth6@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 6!"
+	nextbehemoth
+	behemoth7
+}
+function behemoth5 (){
+	echo "He lieth under the shady trees," 
+	echo "in the covert of the reed, and fens."
+	echo "Enter the password for Level 5..."
+	ssh behemoth5@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 5!"
+	nextbehemoth
+	behemoth6
+}
+function behemoth4 (){
+	echo "Surely the mountains bring him forth food,"
+	echo "where all the beasts of the field play."
+	echo "Enter the password for Level 4..."
+	ssh behemoth4@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 4!"
+	nextbehemoth
+	behemoth5
+}
+function behemoth3 (){
+	echo "He is the chief of the ways of God: he that"
+	echo "made him can make his sword to approach unto him"
+	echo "Enter the password for Level 3..."
+	ssh behemoth3@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 3!"
+	nextbehemoth
+	behemoth4
+}
+function behemoth2 (){
+	echo "His bones are as strong pieces of brass;"
+	echo "his bones are like bars of iron."
+	echo "Enter the password for Level 2..."
+	ssh behemoth2@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 2!"
+	nextbehemoth
+	behemoth3
+}
+function behemoth1 (){
+	echo "He moveth his tail like a cedar: the"
+	echo "sinews of his stones are wrapped together"
+	echo "Enter the password for Level 1..."
+	ssh behemoth1@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 1!"
+	nextbehemoth
+	behemoth2
+}
+function behemoth0 (){
+	echo "Lo now, his strength is in his lions,"
+	echo "and the force is in the navel of his belly."
+	echo "Enter the password for Level 0..."
+	ssh behemoth0@narnia.labs.overthewire.org -p 2221
+	echo "Congratulations on beating Level 0!"
+	nextbehemoth
+	behemoth1
+}
 function behemoth (){
 	echo "Welcome to Behemoth! An OverTheWire wargame"
 	sleep 2
 	echo "Behold now Behemoth, which I made with thee;"
 	echo "he eateth grass as an ox."
 	sleep 2
-	behemoth0
+if test -e ./.OTWSave/.behemoth.sav; then
+	while true; do
+		echo "Save file detected. Continue save game?"
+		shopt -s nocasematch
+		read -r contsave
+		case "$contsave" in
+			Yes)
+				while true; do
+					echo "Enter the level you left off on"
+					echo "The next level is $(cat ./.OTWSave/.behemoth.lvl)"	
+					echo "(If you last completed level 4, enter 5)"
+					shopt -s nocasematch
+					read -r level
+					case "$level" in
+						1)
+							echo "He moveth his tail like a cedar: the"
+							echo "sinews of his stones are wrapped together"
+							sshpass -p "$(cat ./.OTWSave/.behemoth.sav)" ssh behemoth1@behemoth.labs.overthewire.org -p 2221
+							nextbehemoth
+							behemoth2
+							;;
+						2)
+							echo "His bones are as strong pieces of brass;"
+							echo "his bones are like bars of iron."
+							sshpass -p "$(cat ./.OTWSave/.behemoth.sav)" ssh behemoth2@behemoth.labs.overthewire.org -p 2221
+							nextbehemoth
+							behemoth3
+							;;
+						3)
+							echo "He is the chief of the ways of God: he that"
+							echo "made him can make his sword to approach unto him"
+							sshpass -p "$(cat ./.OTWSave/.behemoth.sav)" ssh behemoth3@behemoth.labs.overthewire.org -p 2221
+							nextbehemoth
+							behemoth4
+							;;
+						4)
+							echo "Surely the mountains bring him forth food,"
+							echo "where all the beasts of the field play."
+							sshpass -p "$(cat ./.OTWSave/.behemoth.sav)" ssh behemoth4@behemoth.labs.overthewire.org -p 2221
+							nextbehemoth
+							behemoth5
+							;;
+						5)
+							echo "He lieth under the shady trees," 
+							echo "in the covert of the reed, and fens."
+							sshpass -p "$(cat ./.OTWSave/.behemoth.sav)" ssh behemoth5@behemoth.labs.overthewire.org -p 2221
+							nextbehemoth
+							behemoth6
+							;;
+						6)
+							echo "The shady trees cover him with their shadow;"
+							echo "the willows of the brook compass him about."
+							sshpass -p "$(cat ./.OTWSave/.behemoth.sav)" ssh behemoth6@behemoth.labs.overthewire.org -p 2221
+							echo "Congratulations on beating Level 6!"
+							;;
+						7)
+							echo "Behold, he drinketh up a river, and hasteth not:"
+							echo "he trusteth that he can draw up Jordan into his mouth."
+							sshpass -p "$(cat ./.OTWSave/.behemoth.sav)" ssh behemoth6@behemoth.labs.overthewire.org -p 2221
+							echo "Congratulations on beating Level 7!"
+							;;
+						*)
+							echo "Please enter Yes or No"
+							;;
+					esac
+				done
+				;;
+			No)
+				echo "Starting new game..."
+				behemoth1
+				;;
+			*)
+				echo "Please enter Yes or No"
+				;;
+		esac
+	done
+else
+	echo "No save file found, starting new game..."
 	behemoth1
-	behemoth2
-	behemoth3
-	behemoth4
-	behemoth5
-	behemoth6
-	behemoth7
+fi
 }
 function utumnosave (){
 	if test -e ./.OTWSave/.utumno.sav; then
@@ -1265,41 +1610,126 @@ echo "Proceed to the next level?"
 	esac
 done
 }
-function utumno (){
+function utumno7 (){
+	echo "Enter the password for Level 7..."
+	ssh utumno7@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 7!"
+}
+function utumno6 (){
+	echo "Enter the password for Level 6..."
+	ssh utumno6@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 6!"
+	nextutumno
+}
+function utumno5 (){
+	echo "Enter the password for Level 5..."
+	ssh utumno5@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 5!"
+	nextutumno
+}
+function utumno4 (){
+	echo "Enter the password for Level 4..."
+	ssh utumno4@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 4!"
+	nextutumno
+}
+function utumno3 (){
+	echo "Enter the password for Level 3..."
+	ssh utumno3@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 3!"
+	nextutumno
+}
+function utumno2 (){
+	echo "Enter the password for Level 2..."
+	ssh utumno2@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 2!"
+	nextutumno
+}
+function utumno1 (){
+	echo "Enter the password for Level 1..."
+	ssh utumno1@narnia.labs.overthewire.org -p 2227
+	echo "Congratulations on beating Level 1!"
+	nextutumno
+}
+function utumno0 (){
 	echo "Are you adaquate?"
 	sleep 3
 	echo "Welcome to Utumno! An OverTheWire wargame"
 	echo "Enter the password for Level 0..."
 	ssh utumno0@narnia.labs.overthewire.org -p 2227
 	echo "Congratulations on beating Level 0!"
-	nextlevel
-	echo "Enter the password for Level 1..."
-	ssh utumno1@narnia.labs.overthewire.org -p 2227
-	echo "Congratulations on beating Level 1!"
-	nextlevel
-	echo "Enter the password for Level 2..."
-	ssh utumno2@narnia.labs.overthewire.org -p 2227
-	echo "Congratulations on beating Level 2!"
-	nextlevel
-	echo "Enter the password for Level 3..."
-	ssh utumno3@narnia.labs.overthewire.org -p 2227
-	echo "Congratulations on beating Level 3!"
-	nextlevel
-	echo "Enter the password for Level 4..."
-	ssh utumno4@narnia.labs.overthewire.org -p 2227
-	echo "Congratulations on beating Level 4!"
-	nextlevel
-	echo "Enter the password for Level 5..."
-	ssh utumno5@narnia.labs.overthewire.org -p 2227
-	echo "Congratulations on beating Level 5!"
-	nextlevel
-	echo "Enter the password for Level 6..."
-	ssh utumno6@narnia.labs.overthewire.org -p 2227
-	echo "Congratulations on beating Level 6!"
-	nextlevel
-	echo "Enter the password for Level 7..."
-	ssh utumno7@narnia.labs.overthewire.org -p 2227
-	echo "Congratulations on beating Level 7!"
+	nextutumno
+}
+function utumno (){
+	echo "Are you adaquate?"
+	sleep 3
+	echo "Welcome to Utumno! An OverTheWire wargame"
+	sleep 2
+if test -e ./.OTWSave/.utumno.sav; then
+	while true; do
+		echo "Save file detected. Continue save game?"
+		shopt -s nocasematch
+		read -r contsave
+		case "$contsave" in
+			Yes)
+				while true; do
+					echo "Enter the level you left off on"
+					echo "The next level is $(cat ./.OTWSave/.utumno.lvl)"	
+					echo "(If you last completed level 4, enter 5)"
+					shopt -s nocasematch
+					read -r level
+					case "$level" in
+						1)
+							sshpass -p "$(cat ./.OTWSave/.utumno.sav)" ssh utumno1@utumno.labs.overthewire.org -p 2227
+							nextutumno
+							utumno2
+							;;
+						2)
+							sshpass -p "$(cat ./.OTWSave/.utumno.sav)" ssh utumno2@utumno.labs.overthewire.org -p 2227
+							nextutumno
+							utumno3
+							;;
+						3)
+							sshpass -p "$(cat ./.OTWSave/.utumno.sav)" ssh utumno3@utumno.labs.overthewire.org -p 2227
+							nextutumno
+							utumno4
+							;;
+						4)
+							sshpass -p "$(cat ./.OTWSave/.utumno.sav)" ssh utumno4@behemoth.labs.overthewire.org -p 2227
+							nextutumno
+							utumno5
+							;;
+						5)
+							sshpass -p "$(cat ./.OTWSave/.utumno.sav)" ssh utumno5@utumno.labs.overthewire.org -p 2227
+							nextutumno
+							utumno6
+							;;
+						6)
+							sshpass -p "$(cat ./.OTWSave/.utumno.sav)" ssh utumno6@utumno.labs.overthewire.org -p 2227
+							echo "Congratulations on beating Level 6!"
+							;;
+						7)
+							sshpass -p "$(cat ./.OTWSave/.utumno.sav)" ssh utumno7@utumno.labs.overthewire.org -p 2227
+							;;
+						*)
+							echo "Please enter Yes or No"
+							;;
+					esac
+				done
+				;;
+			No)
+				echo "Starting new game..."
+				utumno0
+				;;
+			*)
+				echo "Please enter Yes or No"
+				;;
+		esac
+	done
+else
+	echo "No save file found, starting new game..."
+	utumno0
+fi
 }
 function mazesave (){
 	if test -e ./.OTWSave/.maze.sav; then
@@ -1462,6 +1892,9 @@ if test -e ./.OTWSave/.maze.sav; then
 							maze7
 							;;
 						8)
+							echo "One more... final analysis."
+							echo "Now it's time for the last test."
+							echo "To escape..."
 							sshpass -p "$(cat ./.OTWSave/.maze.sav)" ssh maze6@maze.labs.overthewire.org -p 2225
 							echo "Congratulations on beating Level 8!"
 							;;
@@ -1473,7 +1906,7 @@ if test -e ./.OTWSave/.maze.sav; then
 				;;
 			No)
 				echo "Starting new game..."
-				krypton1
+				maze0
 				;;
 			*)
 				echo "Please enter Yes or No"
