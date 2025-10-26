@@ -3259,13 +3259,10 @@ echo "Proceed to the next level?"
 	esac
 done
 }
-
-function century15 (){
-	echo "Enter the password for Level 15..."
-	ssh century15@century.underthewire.tech
-	echo "Congratulations on beating Level 15!"
-}
 function century14 (){
+	echo "The password for Century15 is the number" 
+	echo "of times the word 'polo' appears within" 
+	echo "the file on the desktop."
 	echo "Enter the password for Level 14..."
 	ssh century14@century.underthewire.tech
 	echo "Congratulations on beating Level 14!"
@@ -3273,6 +3270,8 @@ function century14 (){
 	century15
 }
 function century13 (){
+	echo "The password for Century14 is the number" 
+	echo "of words within the file on the desktop."
 	echo "Enter the password for Level 13..."
 	ssh century13@century.underthewire.tech
 	echo "Congratulations on beating Level 13!"
@@ -3280,6 +3279,9 @@ function century13 (){
 	century14
 }
 function century12 (){
+	echo "The password for Century13 is the description" 
+	echo "of the computer designated as a Domain Controller" 
+	echo "within this domain PLUS the name of the file on the desktop."
 	echo "Enter the password for Level 12..."
 	ssh century12@century.underthewire.tech
 	echo "Congratulations on beating Level 12!"
@@ -3287,6 +3289,9 @@ function century12 (){
 	century13
 }
 function century11 (){
+	echo "The password for Century12 is the name of the hidden" 
+	echo "file within the contacts, desktop, documents, downloads," 
+	echo "favorites, music, or videos folder in the user’s profile."
 	echo "Enter the password for Level 11..."
 	ssh century11@century.underthewire.tech
 	echo "Congratulations on beating Level 11!"
@@ -3294,6 +3299,9 @@ function century11 (){
 	century12
 }
 function century10 (){
+	echo "The password for Century11 is the 10th and 8th word" 
+	echo "of the Windows Update service description combined" 
+	echo "PLUS the name of the file on the desktop."
 	echo "Enter the password for Level 10..."
 	ssh century10@century.underthewire.tech
 	echo "Congratulations on beating Level 10!"
@@ -3301,6 +3309,8 @@ function century10 (){
 	century11
 }
 function century9 (){
+	echo "The password for Century10 is the" 
+	echo "161st word within the file on the desktop."
 	echo "Enter the password for Level 9..."
 	ssh century9@century.underthewire.tech
 	echo "Congratulations on beating Level 9!"
@@ -3308,6 +3318,8 @@ function century9 (){
 	century10
 }
 function century8 (){
+	echo "The password for Century9 is the number of" 
+	echo "unique entries within the file on the desktop."
 	echo "Enter the password for Level 8..."
 	ssh century8@century.underthewire.tech
 	echo "Congratulations on beating Level 8!"
@@ -3315,6 +3327,9 @@ function century8 (){
 	century9
 }
 function century7 (){
+	echo "The password for Century8 is in a readme file somewhere" 
+	echo "within the contacts, desktop, documents, downloads, favorites," 
+	echo "music, or videos folder in the user’s profile."
 	echo "Enter the password for Level 7..."
 	ssh century7@century.underthewire.tech
 	echo "Congratulations on beating Level 7!"
@@ -3322,6 +3337,8 @@ function century7 (){
 	century8
 }
 function century6 (){
+	echo "The password for Century7 is the" 
+	echo "number of folders on the desktop."
 	echo "Enter the password for Level 6..."
 	ssh century6@century.underthewire.tech
 	echo "Congratulations on beating Level 6!"
@@ -3329,6 +3346,9 @@ function century6 (){
 	century7
 }
 function century5 (){
+	echo "The password for Century6 is the short name" 
+	echo "of the domain in which this system resides" 
+	echo "in PLUS the name of the file on the desktop."
 	echo "Enter the password for Level 5..."
 	ssh century5@century.underthewire.tech
 	echo "Congratulations on beating Level 5!"
@@ -3336,6 +3356,9 @@ function century5 (){
 	century6
 }
 function century4 (){
+	echo "The password for Century5 is the name"
+	echo "of the file within a directory on the desktop" 
+	echo "that has spaces in its name."
 	echo "Enter the password for Level 4..."
 	ssh century4@century.underthewire.tech
 	echo "Congratulations on beating Level 4!"
@@ -3343,6 +3366,8 @@ function century4 (){
 	century5
 }
 function century3 (){
+	echo "The password for Century 4 is"
+	echo "the number of files on the desktop"
 	echo "Enter the password for Level 3..."
 	ssh century3@century.underthewire.tech
 	echo "Congratulations on beating Level 3!"
@@ -3350,6 +3375,10 @@ function century3 (){
 	century4
 }
 function century2 (){
+	echo "The password for Century3 is the name" 
+	echo "of the built-in cmdlet that performs the" 
+	echo "wget like function within PowerShell PLUS" 
+	echo "the name of the file on the desktop."
 	echo "Enter the password for Level 2..."
 	ssh century2@century.underthewire.tech
 	echo "Congratulations on beating Level 2!"
@@ -3357,6 +3386,9 @@ function century2 (){
 	century3
 }
 function century1 (){
+	echo "The password for Century2 is the" 
+	echo "build version of the instance"
+        echo "of PowerShell installed on this system."
 	echo "Enter the password for Level 1..."
 	ssh century1@century.underthewire.tech
 	echo "Congratulations on beating Level 1!"
@@ -3381,72 +3413,102 @@ function century (){
 						read -r level
 						case "$level" in
 							2)
+								echo "The password for Century3 is the name" 
+								echo "of the built-in cmdlet that performs the" 
+								echo "wget like function within PowerShell PLUS" 
+								echo "the name of the file on the desktop."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century2@century.underthewire.tech
 								nextcentury
 								century3
 								;;
 							3)
+								echo "The password for Century 4 is"
+								echo "the number of files on the desktop"
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century3@century.underthewire.tech
 								nextcentury
 								century4
 								;;
 							4)
+								echo "The password for Century5 is the name"
+								echo "of the file within a directory on the desktop" 
+								echo "that has spaces in its name."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century4@century.underthewire.tech
 								nextcentury
 								century5
 								;;
 							5)
+								echo "The password for Century6 is the short name" 
+								echo "of the domain in which this system resides" 
+								echo "in PLUS the name of the file on the desktop."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century5@century.underthewire.tech
 								nextcentury
 								century6
 								;;
 							6)
+								echo "The password for Century7 is the" 
+								echo "number of folders on the desktop."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century6@century.underthewire.tech
 								nextcentury
 								century7
 								;;
 							7)
+								echo "The password for Century8 is in a readme file somewhere" 
+								echo "within the contacts, desktop, documents, downloads, favorites," 
+								echo "music, or videos folder in the user’s profile."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century7@century.underthewire.tech
 								nextcentury
 								century8
 								;;
 							8)
+								echo "The password for Century9 is the number of" 
+								echo "unique entries within the file on the desktop."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century8@century.underthewire.tech
 								nextcentury
 								century9
 								;;
 							9)
+								echo "The password for Century10 is the" 
+								echo "161st word within the file on the desktop."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century9@century.underthewire.tech
 								nextcentury
 								century10
 								;;
 							10)
+								echo "The password for Century11 is the 10th and 8th word" 
+								echo "of the Windows Update service description combined" 
+								echo "PLUS the name of the file on the desktop."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century10@century.underthewire.tech
 								nextcentury
 								century11
 								;;
 							11)
+								echo "The password for Century12 is the name of the hidden" 
+								echo "file within the contacts, desktop, documents, downloads," 
+								echo "favorites, music, or videos folder in the user’s profile."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century11@century.underthewire.tech
 								nextcentury
 								century12
 								;;
 							12)
+								echo "The password for Century13 is the description" 
+								echo "of the computer designated as a Domain Controller" 
+								echo "within this domain PLUS the name of the file on the desktop."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century12@century.underthewire.tech
 								nextcentury
 								century13
 								;;
 							13)
+								echo "The password for Century14 is the number" 
+								echo "of words within the file on the desktop."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century13@century.underthewire.tech
 								nextcentury
 								century14
 								;;
 							14)
+								echo "The password for Century15 is the number" 
+								echo "of times the word 'polo' appears within" 
+								echo "the file on the desktop."
 								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century14@century.underthewire.tech
-								nextcentury
-								century15
-								;;
-							15)
-								sshpass -p "$(cat ./.UTWSave/.century.sav)" ssh century15@century.underthewire.tech
 								;;
 							*)
 								echo "Please enter Yes or No"
@@ -3614,6 +3676,9 @@ function cyborg3 (){
 	cyborg4
 }
 function cyborg2 (){
+	echo "The password for cyborg3 is the host A" 
+	echo "record IP address for CYBORG718W100N" 
+	echo "PLUS the name of the file on the desktop."
 	echo "Enter the password for Level 2..."
 	ssh cyborg2@cyborg.underthewire.tech
 	echo "Congratulations on beating Level 2!"
@@ -3621,6 +3686,9 @@ function cyborg2 (){
 	cyborg3
 }
 function cyborg1 (){
+	echo "The password for cyborg2 is the state that" 
+	echo "the user Chris Rogers is from as stated within" 
+	echo "Active Directory."
 	echo "Enter the password for Level 1..."
 	ssh cyborg1@cyborg.underthewire.tech
 	echo "Congratulations on beating Level 1!"
@@ -3646,6 +3714,9 @@ function cyborg (){
 						read -r level
 						case "$level" in
 							2)
+								echo "The password for cyborg3 is the host A" 
+								echo "record IP address for CYBORG718W100N" 
+								echo "PLUS the name of the file on the desktop."
 								sshpass -p "$(cat ./.UTWSave/.cyborg.sav)" ssh cyborg2@cyborg.underthewire.tech
 								nextcyborg
 								cyborg3
