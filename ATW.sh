@@ -2527,13 +2527,6 @@ function manpage5 (){
 	nextmanpage
 	manpage6
 }
-function manpage5 (){
-	echo "Enter the password for Level 5..."
-	ssh manpage5@manpage.labs.overthewire.org -p 2224
-	echo "Congratulations on beating Level 5!"
-	nextmanpage
-	manpage6
-}
 function manpage4 (){
 	echo "Enter the password for Level 4..."
 	ssh manpage4@manpage.labs.overthewire.org -p 2224
