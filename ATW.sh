@@ -49,6 +49,7 @@ while true; do
 		break
 		;;
 		Cancel)
+		cancel
 		break
 		;;
 		*)
